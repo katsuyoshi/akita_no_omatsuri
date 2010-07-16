@@ -2,10 +2,10 @@
 
 one:
   code: MyString
-  title: MyString
+  name: MyString
   summary: MyText
 
 two:
   code: MyString
-  title: MyString
+  name: MyString
   summary: MyText

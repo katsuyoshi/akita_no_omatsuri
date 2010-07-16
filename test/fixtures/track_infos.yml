@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  omatsuri_id: 1
+  title: MyString
+  summary: MyText
+  start_at: 2010-07-16 14:17:06
+  end_at: 2010-07-16 14:17:06
+
+two:
+  omatsuri_id: 1
+  title: MyString
+  summary: MyText
+  start_at: 2010-07-16 14:17:06
+  end_at: 2010-07-16 14:17:06

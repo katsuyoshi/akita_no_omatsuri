@@ -1,0 +1,21 @@
+<h1><%= @omatsuri.name %></h1>
+<h2><%= @track_info.title %></h2>
+
+<p>
+  <b>概要:</b>
+  <%=h @track_info.summary %>
+</p>
+
+<p>
+  <b>開始日時:</b>
+  <%=h @track_info.start_at %>
+</p>
+
+<p>
+  <b>終了日時:</b>
+  <%=h @track_info.end_at %>
+</p>
+
+
+<%= link_to '編集', edit_omatsuri_track_info_path(@omatsuri, @track_info) %> |
+<%= link_to "#{@omatsuri.name}へ", @omatsuri %>

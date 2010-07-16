@@ -1,8 +1,8 @@
 <h1>位置情報追加</h1>
-<h2><%=h @omatsuri.title %></h2>
-<h2><%=h @chonai.title %></h2>
+<h2><%=h @omatsuri.name %></h2>
+<h2><%=h @hikiyama.name %></h2>
 
-<% form_for([@omatsuri, @chonai, @location]) do |f| %>
+<% form_for([@omatsuri, @hikiyama, @location]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -34,4 +34,4 @@
   </p>
 <% end %>
 
-<%= link_to "#{@chonai.title}へ戻る", omatsuri_chonai_path(@omatsuri, @chonai) %>
+<%= link_to "#{@hikiyama.name}へ戻る", omatsuri_hikiyama_path(@omatsuri, @hikiyama) %>

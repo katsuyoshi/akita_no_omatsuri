@@ -1,6 +1,7 @@
-<h1>お祭り編集</h1>
+<h1><%=h @omatsuri.name %></h1>
+<h2>曳山(丁内)編集</h2>
 
-<% form_for(@omatsuri) do |f| %>
+<% form_for([@omatsuri, @hikiyama]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,16 +9,12 @@
     <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label :name, 'タイトル' %><br />
+    <%= f.label :name, '名称' %><br />
     <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label :url, 'ホームページ' %><br />
     <%= f.text_field :url, :size => 80 %>
-  </p>
-  <p>
-    <%= f.label :use_heading, '向きデータ使用する' %><br />
-    <%= f.check_box :use_heading %>
   </p>
   <p>
     <%= f.label :summary, '概要' %><br />
@@ -28,5 +25,4 @@
   </p>
 <% end %>
 
-<%= link_to "#{@omatsuri.name}へ", @omatsuri %> |
-<%= link_to 'お祭り一覧へ', omatsuris_path %>
+<%= link_to "#{@omatsuri.name}へ", @omatsuri %>

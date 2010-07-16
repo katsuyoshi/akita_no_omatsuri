@@ -1,0 +1,28 @@
+<h1><%=h @omatsuri.name %></h1>
+<h2>運行情報編集</h2>
+
+<% form_for([@omatsuri, @track_info]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :summary, "概要" %><br />
+    <%= f.text_area :summary %>
+  </p>
+  <p>
+    <%= f.label :start_at, "開始時刻" %><br />
+    <%= f.datetime_select :start_at %>
+  </p>
+  <p>
+    <%= f.label :end_at, "終了時刻" %><br />
+    <%= f.datetime_select :end_at %>
+  </p>
+  <p>
+    <%= f.submit '更新' %>
+  </p>
+<% end %>
+
+<%= link_to "#{@omatsuri.name}へ", @omatsuri %>

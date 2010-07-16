@@ -1,10 +1,10 @@
-class CreateOmatsuris < ActiveRecord::Migration
+class CreateHikiyamas < ActiveRecord::Migration
   def self.up
-    create_table :omatsuris do |t|
+    create_table :hikiyamas do |t|
       t.string :code
       t.string :name
       t.text :summary
-      t.boolean :use_heading, :default => 'true'
+      t.integer :omatsuri_id
       t.string :url
 
       t.timestamps
@@ -12,6 +12,6 @@ class CreateOmatsuris < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :omatsuris
+    drop_table :hikiyamas
   end
 end

@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class ChonaisHelperTest < ActionView::TestCase
+class HikiyamasHelperTest < ActionView::TestCase
 end

@@ -8,8 +8,16 @@
     <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label :title, 'タイトル' %><br />
-    <%= f.text_field :title %>
+    <%= f.label :name, 'タイトル' %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url, 'ホームページ' %><br />
+    <%= f.text_field :url, :size => 80 %>
+  </p>
+  <p>
+    <%= f.label :use_heading, '向きデータ使用する' %><br />
+    <%= f.check_box :use_heading %>
   </p>
   <p>
     <%= f.label :summary, '概要' %><br />

@@ -1,11 +1,11 @@
 class LocationsController < ApplicationController
 
-  before_filter :capture_omatsuri_chonai
+  before_filter :capture_omatsuri_hikiyama
 
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = @chonai.locations
+    @locations = @hikiyama.locations
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,9 +47,9 @@ class LocationsController < ApplicationController
     @location = Location.new(params[:location])
 
     respond_to do |format|
-      if @chonai.locations << @location
+      if @hikiyama.locations << @location
         flash[:notice] = 'Location was successfully created.'
-        format.html { redirect_to(omatsuri_chonai_url(@omatsuri, @chonai)) }
+        format.html { redirect_to(omatsuri_hikiyama_url(@omatsuri, @hikiyama)) }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
         format.html { render :action => "new" }
@@ -82,7 +82,7 @@ class LocationsController < ApplicationController
     @location.destroy
 
     respond_to do |format|
-      format.html { redirect_to(omatsuri_chonai_url(@omatsuri, @chonai)) }
+      format.html { redirect_to(omatsuri_hikiyama_url(@omatsuri, @hikiyama)) }
       format.xml  { head :ok }
     end
   end
@@ -90,9 +90,14 @@ class LocationsController < ApplicationController
 
   private
   
-  def capture_omatsuri_chonai
-    @chonai = Chonai.find(params[:chonai_id])
-    @omatsuri = @chonai.omatsuri
+  def capture_omatsuri_hikiyama
+    if params[:hikiyama_id]
+      @hikiyama = Hikiyama.find(params[:hikiyama_id])
+      @omatsuri = @hikiyama.omatsuri
+    else
+      @omatsuri = Omatsuri.find_by_code(params[:omatsuri])
+      @hikiyama = @omatsuri.hikiyamas.find_by_code(params[:hikiyama])
+    end
   end
 
 end

@@ -1,10 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
-  #map.resources :locations
 
-  #map.resources :chonais
-
+  map.hikiyamas("/:omatsuri",
+    :controller => 'hikiyamas', :action => 'index')
+  map.hikiyamas("/:omatsuri.:format",
+    :controller => 'hikiyamas', :action => 'index')
+    
+  map.locations("/:omatsuri/:hikiyama",
+    :controller => 'locations', :action => 'index')
+  map.locations("/:omatsuri/:hikiyama.:format",
+    :controller => 'locations', :action => 'index')
+    
   map.resources :omatsuris do |omatsuri|
-    omatsuri.resources :chonais, :has_many => :locations
+    omatsuri.resources :hikiyamas, :has_many => :locations
+    omatsuri.resources :track_infos
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -39,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => "omatsuris"
 
   # See how all your routes lay out with "rake routes"
 

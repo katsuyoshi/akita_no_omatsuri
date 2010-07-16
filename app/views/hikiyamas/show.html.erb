@@ -1,0 +1,15 @@
+<h1><%= @omatsuri.name %></h1>
+<h2><%= "#{@hikiyama.name}(#{@hikiyama.code})" %></h2>
+<p>
+  <b>概要:</b>
+  <%=h @hikiyama.summary %>
+</p>
+
+<%= render :partial => '/locations/index.html.erb', :locals => { :locations => @hikiyama.locations } %>
+<br />
+
+<br />
+
+
+<%= link_to "編集", edit_omatsuri_hikiyama_path(@omatsuri, @hikiyama) %> |
+<%= link_to "#{@omatsuri.name}へ", @omatsuri %>

@@ -1,7 +1,7 @@
 class CreateLocations < ActiveRecord::Migration
   def self.up
     create_table :locations do |t|
-      t.integer :chonai_id
+      t.integer :hikiyama_id
       t.float :latitude
       t.float :longitude
       t.float :horizontal_accuracy

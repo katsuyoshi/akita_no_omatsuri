@@ -1,10 +1,17 @@
-<h1><%= "#{@omatsuri.title}(#{@omatsuri.code})" %></h1>
+<h1><%= "#{@omatsuri.name}(#{@omatsuri.code})" %></h1>
+<p>
+  <b>ホームページ:</b>
+  <%=h @omatsuri.url %>
+</p>
 <p>
   <b>概要:</b>
   <%=h @omatsuri.summary %>
 </p>
 
-<%= render :partial => '/chonais/index.html.erb', :locals => { :chonais => @omatsuri.chonais } %>
+<%= render :partial => '/track_infos/index.html.erb', :locals => { :track_infos => @omatsuri.track_infos } %>
+<br />
+
+<%= render :partial => '/hikiyamas/index.html.erb', :locals => { :hikiyamas => @omatsuri.hikiyamas } %>
 <br />
 
 <br />

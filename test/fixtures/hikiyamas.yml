@@ -2,12 +2,12 @@
 
 one:
   code: MyString
-  title: MyString
+  name: MyString
   summary: MyText
   omatsuri_id: 1
 
 two:
   code: MyString
-  title: MyString
+  name: MyString
   summary: MyText
   omatsuri_id: 1

@@ -1,18 +1,10 @@
 <h1>お祭り一覧</h1>
 
 <table>
-  <tr>
-    <th>コード</th>
-    <th>タイトル</th>
-    <th>概要</th>
-  </tr>
 
 <% @omatsuris.each do |omatsuri| %>
   <tr>
-    <td><%=h omatsuri.code %></td>
-    <td><%=h omatsuri.title %></td>
-    <td><%=h omatsuri.summary %></td>
-    <td><%= link_to '詳細', omatsuri %></td>
+    <td><%=link_to h("#{omatsuri.name}(#{omatsuri.code})"), omatsuri %></td>
     <td><%= link_to '編集', edit_omatsuri_path(omatsuri) %></td>
     <td><%= link_to '削除', omatsuri, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

@@ -1,3 +1,3 @@
 class Location < ActiveRecord::Base
-  belongs_to :chonai
+  belongs_to :hikiyama
 end
