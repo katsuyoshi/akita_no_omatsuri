@@ -1,14 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.hikiyamas("/:omatsuri",
-    :controller => 'hikiyamas', :action => 'index')
-  map.hikiyamas("/:omatsuri.:format",
-    :controller => 'hikiyamas', :action => 'index')
+  #map.hikiyamas("/:omatsuri",
+  #  :controller => 'hikiyamas', :action => 'index')
+  #map.hikiyamas("/:omatsuri.:format",
+  #  :controller => 'hikiyamas', :action => 'index')
     
-  map.locations("/:omatsuri/:hikiyama",
-    :controller => 'locations', :action => 'index')
-  map.locations("/:omatsuri/:hikiyama.:format",
-    :controller => 'locations', :action => 'index')
+  #map.locations("/:omatsuri/:hikiyama",
+  #  :controller => 'locations', :action => 'index')
+  #map.locations("/:omatsuri/:hikiyama.:format",
+  #  :controller => 'locations', :action => 'index')
     
   map.resources :omatsuris do |omatsuri|
     omatsuri.resources :hikiyamas, :has_many => :locations
