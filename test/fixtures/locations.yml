@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  omatsuri_id: 1
+  latitude: 
+  longitude: 
+  horizontal_accuracy: 
+  heading: 
+  heading_accuracy: 
+  timestamp: 
+
+two:
+  omatsuri_id: 1
+  latitude: 
+  longitude: 
+  horizontal_accuracy: 
+  heading: 
+  heading_accuracy: 
+  timestamp: 

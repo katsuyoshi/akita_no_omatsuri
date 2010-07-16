@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  #map.resources :locations
+
+  #map.resources :chonais
+
+  map.resources :omatsuris do |omatsuri|
+    omatsuri.resources :chonais, :has_many => :locations
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

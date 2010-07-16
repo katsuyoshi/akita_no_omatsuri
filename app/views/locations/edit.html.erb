@@ -1,0 +1,40 @@
+<h1>Editing location</h1>
+
+<% form_for(@location) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :omatsuri_id %><br />
+    <%= f.text_field :omatsuri_id %>
+  </p>
+  <p>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </p>
+  <p>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </p>
+  <p>
+    <%= f.label :horizontal_accuracy %><br />
+    <%= f.text_field :horizontal_accuracy %>
+  </p>
+  <p>
+    <%= f.label :heading %><br />
+    <%= f.text_field :heading %>
+  </p>
+  <p>
+    <%= f.label :heading_accuracy %><br />
+    <%= f.text_field :heading_accuracy %>
+  </p>
+  <p>
+    <%= f.label :timestamp %><br />
+    <%= f.text_field :timestamp %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @location %> |
+<%= link_to 'Back', locations_path %>

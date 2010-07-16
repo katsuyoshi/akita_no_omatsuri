@@ -1,0 +1,37 @@
+<h1>位置情報追加</h1>
+<h2><%=h @omatsuri.title %></h2>
+<h2><%=h @chonai.title %></h2>
+
+<% form_for([@omatsuri, @chonai, @location]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :latitude, '緯度' %><br />
+    <%= f.text_field :latitude %>
+  </p>
+  <p>
+    <%= f.label :longitude, '経度' %><br />
+    <%= f.text_field :longitude %>
+  </p>
+  <p>
+    <%= f.label :horizontal_accuracy, '位置精度' %><br />
+    <%= f.text_field :horizontal_accuracy %>
+  </p>
+  <p>
+    <%= f.label :heading, '方向' %><br />
+    <%= f.text_field :heading %>
+  </p>
+  <p>
+    <%= f.label :heading_accuracy, '方向精度' %><br />
+    <%= f.text_field :heading_accuracy %>
+  </p>
+  <p>
+    <%= f.label :timestamp, '時刻' %><br />
+    <%= f.text_field :timestamp %>
+  </p>
+  <p>
+    <%= f.submit '追加' %>
+  </p>
+<% end %>
+
+<%= link_to "#{@chonai.title}へ戻る", omatsuri_chonai_path(@omatsuri, @chonai) %>

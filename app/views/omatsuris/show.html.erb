@@ -1,0 +1,12 @@
+<h1><%= "#{@omatsuri.title}(#{@omatsuri.code})" %></h1>
+<p>
+  <b>概要:</b>
+  <%=h @omatsuri.summary %>
+</p>
+
+<%= render :partial => '/chonais/index.html.erb', :locals => { :chonais => @omatsuri.chonais } %>
+<br />
+
+<br />
+<%= link_to "編集", edit_omatsuri_path(@omatsuri) %> |
+<%= link_to 'お祭り一覧へ', omatsuris_path %>

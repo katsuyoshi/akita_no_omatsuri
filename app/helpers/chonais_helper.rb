@@ -1,0 +1,2 @@
+module ChonaisHelper
+end

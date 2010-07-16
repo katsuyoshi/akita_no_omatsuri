@@ -1,0 +1,16 @@
+<h2>町内</h2>
+
+<table>
+<% chonais.each do |chonai| %>
+  <tr>
+    <td><%=h "#{chonai.title}(#{chonai.code})" %></td>
+    <td><%= link_to '詳細', omatsuri_chonai_path(@omatsuri, chonai) %></td>
+    <td><%= link_to '編集', edit_omatsuri_chonai_path([@omatsuri, chonai]) %></td>
+    <td><%= link_to '削除', [@omatsuri, chonai], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '町内追加', new_omatsuri_chonai_path(@omatsuri) %>

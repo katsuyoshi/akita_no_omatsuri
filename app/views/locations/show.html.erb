@@ -1,0 +1,38 @@
+<p>
+  <b>Omatsuri:</b>
+  <%=h @location.omatsuri_id %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @location.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @location.longitude %>
+</p>
+
+<p>
+  <b>Horizontal accuracy:</b>
+  <%=h @location.horizontal_accuracy %>
+</p>
+
+<p>
+  <b>Heading:</b>
+  <%=h @location.heading %>
+</p>
+
+<p>
+  <b>Heading accuracy:</b>
+  <%=h @location.heading_accuracy %>
+</p>
+
+<p>
+  <b>Timestamp:</b>
+  <%=h @location.timestamp %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
