@@ -66,7 +66,7 @@ class HikiyamasController < ApplicationController
     respond_to do |format|
       if @hikiyama.update_attributes(params[:hikiyama])
         flash[:notice] = 'Hikiyama was successfully updated.'
-        format.html { redirect_to(@hikiyama) }
+        format.html { redirect_to(@omatsuri, @hikiyama) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
