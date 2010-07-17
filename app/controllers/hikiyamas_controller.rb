@@ -5,7 +5,7 @@ class HikiyamasController < ApplicationController
   # GET /hikiyamas
   # GET /hikiyamas.xml
   def index
-    @hikiyamas = Hikiyama.all
+    @hikiyamas = @omatsuri.hikiyamas
 
     respond_to do |format|
       format.html # index.html.erb
