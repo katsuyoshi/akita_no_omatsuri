@@ -1,7 +1,7 @@
 <h1><%= "#{@omatsuri.name}(#{@omatsuri.code})" %></h1>
 <p>
   <b>ホームページ:</b>
-  <%=h @omatsuri.url %>
+  <%= link_to @omatsuri.url, @omatsuri.url, :target => '_blank' %>
 </p>
 <p>
   <b>概要:</b>
