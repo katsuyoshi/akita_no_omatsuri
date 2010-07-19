@@ -1,14 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
 
-  #map.hikiyamas("/:omatsuri",
-  #  :controller => 'hikiyamas', :action => 'index')
-  #map.hikiyamas("/:omatsuri.:format",
-  #  :controller => 'hikiyamas', :action => 'index')
+  map.hikiyamas("/:omatsuri/hikiyamas.:format",
+    :controller => 'hikiyamas', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/ })
     
-  #map.locations("/:omatsuri/:hikiyama",
-  #  :controller => 'locations', :action => 'index')
-  #map.locations("/:omatsuri/:hikiyama.:format",
-  #  :controller => 'locations', :action => 'index')
+  map.locations("/:omatsuri/:hikiyama/locations.:format",
+    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ })
+
+  map.locations_by_date("/:omatsuri/:hikiyama/locations/:date.:format",
+    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/, :date => /\d{4}-\d{1,2}-\d{1,2}/ })
+
+  map.locations_by_start_at_and_end_at("/:omatsuri/:hikiyama/locations/:start_at/:end_at.:format",
+    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/, :start_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/ })
+
+  map.new_locations("/:omatsuri/:hikiyama/locations/new.:format",
+    :controller => 'locations', :action => 'new', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ })
+
     
   map.resources :omatsuris do |omatsuri|
     omatsuri.resources :hikiyamas, :has_many => :locations

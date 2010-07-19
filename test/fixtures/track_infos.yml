@@ -1,5 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+kakunodate_info:
+  omatsuri: kakunodate
+  title: テスト
+  summary: 
+  start_at: 2010-07-16 14:17:06
+  end_at: 2010-07-16 14:17:06
+  
 one:
   omatsuri_id: 1
   title: MyString
@@ -13,3 +20,4 @@ two:
   summary: MyText
   start_at: 2010-07-16 14:17:06
   end_at: 2010-07-16 14:17:06
+

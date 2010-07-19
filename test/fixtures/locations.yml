@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  hikiyama_id: 1
+  hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
   horizontal_accuracy: 
@@ -10,10 +10,38 @@ one:
   timestamp: 2010-07-18 00:00:00
 
 two:
-  hikiyama_id: 1
+  hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
   horizontal_accuracy: 
   heading: 0.0
   heading_accuracy: 
-  timestamp: 2010-07-18 00:00:00
+  timestamp: 2010-07-18 00:00:01
+
+three:
+  hikiyama: sugazawa
+  latitude: 0.0
+  longitude: 0.0
+  horizontal_accuracy: 
+  heading: 0.0
+  heading_accuracy: 
+  timestamp: 2010-07-18 23:59:58
+
+four:
+  hikiyama: sugazawa
+  latitude: 0.0
+  longitude: 0.0
+  horizontal_accuracy: 
+  heading: 0.0
+  heading_accuracy: 
+  timestamp: 2010-07-18 23:59:59
+
+five:
+  hikiyama: sugazawa
+  latitude: 0.0
+  longitude: 0.0
+  horizontal_accuracy: 
+  heading: 0.0
+  heading_accuracy: 
+  timestamp: 2010-07-19 00:00:00
+

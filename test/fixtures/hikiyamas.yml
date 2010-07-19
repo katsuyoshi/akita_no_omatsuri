@@ -1,5 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+sugazawa:
+  code: sugazawa
+  name: ›‘ò
+  summary: 
+  omatsuri: kakunodate
+
 one:
   code: MyString
   name: MyString
@@ -11,3 +17,4 @@ two:
   name: MyString
   summary: MyText
   omatsuri_id: 1
+

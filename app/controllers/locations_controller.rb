@@ -5,7 +5,13 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = @hikiyama.locations
+    if params[:date]
+        @locations = @hikiyama.locations.by_date(DateTime.parse(params[:date]))
+    elsif params[:start_at] && params[:end_at]
+        @locations = @hikiyama.locations.by_start_at_and_end_at(to_date(params[:start_at]), to_date(params[:end_at]))
+    else
+        @locations = @hikiyama.locations
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -99,5 +105,16 @@ class LocationsController < ApplicationController
       @hikiyama = @omatsuri.hikiyamas.find_by_code(params[:hikiyama])
     end
   end
+  
+  def to_date str
+    a = str.split('-')
+    t = a[3]
+    str = [a[0,3].join('-'), [t[0,2], t[2,2], t[4,2]].join(':')].join(' ')
+puts '*************'
+p a
+p str
+    DateTime.parse(str)
+  end
+  
 
 end

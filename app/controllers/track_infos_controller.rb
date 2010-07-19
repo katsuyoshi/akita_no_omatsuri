@@ -82,7 +82,7 @@ class TrackInfosController < ApplicationController
     @track_info.destroy
 
     respond_to do |format|
-      format.html { redirect_to(track_infos_url) }
+      format.html { redirect_to(@omatsuri) }
       format.xml  { head :ok }
     end
   end

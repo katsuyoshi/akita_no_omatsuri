@@ -14,30 +14,30 @@ class OmatsurisControllerTest < ActionController::TestCase
 
   test "should create omatsuri" do
     assert_difference('Omatsuri.count') do
-      post :create, :omatsuri => { }
+      post :create, :omatsuri => { :code => 'kanto', :name => 'KANTO' }
     end
 
     assert_redirected_to omatsuri_path(assigns(:omatsuri))
   end
 
   test "should show omatsuri" do
-    get :show, :id => omatsuris(:one).to_param
+    get :show, :id => omatsuris(:kakunodate).to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => omatsuris(:one).to_param
+    get :edit, :id => omatsuris(:kakunodate).to_param
     assert_response :success
   end
 
   test "should update omatsuri" do
-    put :update, :id => omatsuris(:one).to_param, :omatsuri => { }
+    put :update, :id => omatsuris(:kakunodate).to_param, :omatsuri => { :code => 'kakunodate', :name => 'KAKUNODATE' }
     assert_redirected_to omatsuri_path(assigns(:omatsuri))
   end
 
   test "should destroy omatsuri" do
     assert_difference('Omatsuri.count', -1) do
-      delete :destroy, :id => omatsuris(:one).to_param
+      delete :destroy, :id => omatsuris(:kakunodate).to_param
     end
 
     assert_redirected_to omatsuris_path

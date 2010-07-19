@@ -1,5 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+kakunodate:
+  code: kakunodate
+  name: äpäŸÇÃÇ®ç’ÇË
+  summary: MyText
+
 one:
   code: MyString
   name: MyString
@@ -9,3 +14,4 @@ two:
   code: MyString
   name: MyString
   summary: MyText
+  
