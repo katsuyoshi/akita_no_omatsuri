@@ -111,9 +111,6 @@ class LocationsController < ApplicationController
     a = str.split('-')
     t = a[3]
     str = [a[0,3].join('-'), [t[0,2], t[2,2], t[4,2]].join(':')].join(' ')
-puts '*************'
-p a
-p str
     DateTime.parse(str)
   end
   
