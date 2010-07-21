@@ -6,6 +6,9 @@ ActionController::Routing::Routes.draw do |map|
   map.locations("/:omatsuri/:hikiyama/locations.:format",
     :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ })
 
+  map.create_location("/:omatsuri/:hikiyama/location.:format",
+    :controller => 'locations', :action => 'create', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ }, :conditions => { :method => :post })
+
   map.locations_by_date("/:omatsuri/:hikiyama/locations/:date.:format",
     :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/, :date => /\d{4}-\d{1,2}-\d{1,2}/ })
 
