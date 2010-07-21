@@ -56,7 +56,8 @@ class LocationsController < ApplicationController
       if @hikiyama.locations << @location
         flash[:notice] = 'Location was successfully created.'
         format.html { redirect_to(omatsuri_hikiyama_url(@omatsuri, @hikiyama)) }
-        format.xml  { render :xml => @location, :status => :created, :location => @location }
+        format.xml  { render :json => @location, :status => :created, :location => '/' }
+        format.json  { render :json => @location, :status => :created, :location => '/' }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @location.errors, :status => :unprocessable_entity }
