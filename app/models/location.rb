@@ -8,5 +8,7 @@ class Location < ActiveRecord::Base
   named_scope :by_start_at_and_end_at, lambda {|start_at, end_at|
     { :conditions => ['timestamp between ? and ?', start_at, end_at.ago(1)], :order => 'timestamp'}
   }
+  
+  named_scope :all, { :order => 'timestamp' }
 
 end

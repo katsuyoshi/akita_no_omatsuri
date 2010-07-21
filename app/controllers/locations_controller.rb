@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
     elsif params[:start_at] && params[:end_at]
         @locations = @hikiyama.locations.by_start_at_and_end_at(to_date(params[:start_at]), to_date(params[:end_at]))
     else
-        @locations = @hikiyama.locations
+        @locations = @hikiyama.locations.all
     end
 
     respond_to do |format|
