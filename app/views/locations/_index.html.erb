@@ -23,7 +23,7 @@
     <td><%=h location.heading %></td>
     <td><%=h location.heading_accuracy %></td>
     <td><%=h location.timestamp %></td>
-    <td><%=h location.device.nickname if location.device %></td>
+    <td><%=h truncate(location.device.nickname, 16) if location.device %></td>
     <td><%= link_to '削除', [@omatsuri, @hikiyama, location], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
