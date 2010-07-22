@@ -1,4 +1,7 @@
 class Location < ActiveRecord::Base
+  validates_presence_of :timestamp, :hikiyama_id
+  validates_numericality_of :latitude, :longitude, :horizontal_accuracy, :heading, :heading_accuracy
+
   belongs_to :hikiyama
 
   named_scope :by_date, lambda {|date|

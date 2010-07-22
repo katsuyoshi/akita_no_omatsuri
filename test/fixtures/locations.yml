@@ -4,44 +4,44 @@ one:
   hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
-  horizontal_accuracy: 
+  horizontal_accuracy: 0.0
   heading: 0.0
-  heading_accuracy: 
+  heading_accuracy: 0.0
   timestamp: 2010-07-18 00:00:00
 
 two:
   hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
-  horizontal_accuracy: 
+  horizontal_accuracy: 0.0
   heading: 0.0
-  heading_accuracy: 
+  heading_accuracy: 0.0
   timestamp: 2010-07-18 00:00:01
 
 three:
   hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
-  horizontal_accuracy: 
+  horizontal_accuracy: 0.0
   heading: 0.0
-  heading_accuracy: 
+  heading_accuracy: 0.0
   timestamp: 2010-07-18 23:59:58
 
 four:
   hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
-  horizontal_accuracy: 
+  horizontal_accuracy: 0.0
   heading: 0.0
-  heading_accuracy: 
+  heading_accuracy: 0.0
   timestamp: 2010-07-18 23:59:59
 
 five:
   hikiyama: sugazawa
   latitude: 0.0
   longitude: 0.0
-  horizontal_accuracy: 
+  horizontal_accuracy: 0.0
   heading: 0.0
-  heading_accuracy: 
+  heading_accuracy: 0.0
   timestamp: 2010-07-19 00:00:00
 
