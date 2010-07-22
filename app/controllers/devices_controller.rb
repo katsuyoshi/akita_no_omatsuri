@@ -1,4 +1,5 @@
 class DevicesController < ApplicationController
+  layout "application"
   # GET /devices
   # GET /devices.xml
   def index

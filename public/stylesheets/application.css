@@ -1,0 +1,16 @@
+#container {
+  margin: 0 auto;
+  padding: 0px;
+  width: 800px;
+}
+
+#content {
+  margin: 0px 0px;
+  width: 650px;
+  float: left;
+}
+
+#side {
+  width: 150px;
+  float: left;
+}

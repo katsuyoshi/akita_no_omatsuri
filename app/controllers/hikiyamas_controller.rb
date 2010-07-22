@@ -1,4 +1,5 @@
 class HikiyamasController < ApplicationController
+  layout "application"
 
   before_filter :capture_omatsuri
 

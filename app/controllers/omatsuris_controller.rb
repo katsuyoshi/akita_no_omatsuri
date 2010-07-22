@@ -1,4 +1,6 @@
 class OmatsurisController < ApplicationController
+  layout "application"
+
   # GET /omatsuris
   # GET /omatsuris.xml
   def index

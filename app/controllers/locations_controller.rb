@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  layout "application"
 
   before_filter :capture_omatsuri_hikiyama
 
