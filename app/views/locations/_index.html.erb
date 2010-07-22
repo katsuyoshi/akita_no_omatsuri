@@ -1,4 +1,8 @@
 <h2>位置情報</h2>
+<% if show_limited %>
+<% count = 0; locations.each {|l| count = count + 1 } %>
+最新の<%= count %>件だけ降順で表示しています。
+<% end %>
 
 <table>
   <tr>

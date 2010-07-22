@@ -9,7 +9,9 @@
   <%=h @hikiyama.summary %>
 </p>
 
-<%= render :partial => '/locations/index.html.erb', :locals => { :locations => @hikiyama.locations.all } %>
+<hr />
+
+<%= render :partial => '/locations/index.html.erb', :locals => { :locations => @hikiyama.locations.recent(10); :show_limited => ture } %>
 <br />
 
 <br />

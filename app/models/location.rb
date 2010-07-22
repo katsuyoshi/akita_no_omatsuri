@@ -15,6 +15,10 @@ class Location < ActiveRecord::Base
     { :conditions => ['timestamp between ? and ?', start_at, end_at.ago(1)], :order => 'timestamp'}
   }
   
+  named_scope :recent, lambda {|limit|
+    { :limit => limit, :order => 'timestamp desc' }
+  }
+  
   named_scope :all, { :order => 'timestamp' }
 
   

@@ -6,12 +6,14 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
+    @show_limited = false
     if params[:date]
         @locations = @hikiyama.locations.by_date(DateTime.parse(params[:date]))
     elsif params[:start_at] && params[:end_at]
         @locations = @hikiyama.locations.by_start_at_and_end_at(to_date(params[:start_at]), to_date(params[:end_at]))
     else
-        @locations = @hikiyama.locations.all
+        @locations = @hikiyama.locations.recent(20)
+        @show_limited = true
     end
 
     respond_to do |format|
