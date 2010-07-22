@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :devices
+
 
   map.hikiyamas("/:omatsuri/hikiyamas.:format",
     :controller => 'hikiyamas', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/ })
@@ -23,6 +25,8 @@ ActionController::Routing::Routes.draw do |map|
     omatsuri.resources :hikiyamas, :has_many => :locations
     omatsuri.resources :track_infos
   end
+  
+  map.resources :devices
 
   # The priority is based upon order of creation: first created -> highest priority.
 

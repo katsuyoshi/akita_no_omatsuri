@@ -1,0 +1,21 @@
+<h1>デバイス一覧</h1>
+
+<table>
+  <tr>
+    <th>デバイス名称</th>
+    <th>説明</th>
+  </tr>
+
+<% @devices.each do |device| %>
+  <tr>
+    <td><%=h device.nickname %></td>
+    <td><%=h truncate(device.summary, 16) %></td>
+    <td><%= link_to '詳細', device %></td>
+    <td><%= link_to '編集', edit_device_path(device) %></td>
+    <td><%= link_to '削除', device, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

@@ -77,5 +77,22 @@ class LocationTest < ActiveSupport::TestCase
     assert location.valid?
   end
   
+  test "device should be set" do
+    location = locations(:one)
+    location.device_nickname = "iPhone"
+    assert location.save
+    assert_equal devices(:iphone), location.device
+  end
+  
+  test "device should be created" do
+    location = locations(:one)
+    location.device_nickname = "iPhone 4"
+    assert_difference('Device.count') do
+      assert location.save
+    end
+    assert_equal Device.find_by_nickname("iPhone 4"), location.device
+  end
+  
+  
   
 end

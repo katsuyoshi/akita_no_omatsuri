@@ -27,7 +27,7 @@ class LocationsControllerTest < ActionController::TestCase
 
   test "should create location" do
     assert_difference('Location.count') do
-      post :create, :omatsuri_id => omatsuris(:kakunodate).to_param, :hikiyama_id => hikiyamas(:sugazawa).to_param, :location => { :latitude => 0.0, :longitude => 0.0, :timestamp => '2010-07-18 00:00:00' }
+      post :create, :omatsuri_id => omatsuris(:kakunodate).to_param, :hikiyama_id => hikiyamas(:sugazawa).to_param, :location => locations(:one).attributes
     end
 
     assert_redirected_to omatsuri_hikiyama_path(omatsuris(:kakunodate), hikiyamas(:sugazawa))

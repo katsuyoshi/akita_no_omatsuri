@@ -3,6 +3,9 @@ class Location < ActiveRecord::Base
   validates_numericality_of :latitude, :longitude, :horizontal_accuracy, :heading, :heading_accuracy
 
   belongs_to :hikiyama
+  belongs_to :device
+  
+  attr_accessor :device_nickname
 
   named_scope :by_date, lambda {|date|
     { :conditions => ['timestamp between ? and ?', date.beginning_of_day, date.end_of_day], :order => 'timestamp'}
@@ -14,4 +17,18 @@ class Location < ActiveRecord::Base
   
   named_scope :all, { :order => 'timestamp' }
 
+  
+  def before_save
+    if self.device_nickname
+      d = Device.find_by_nickname(self.device_nickname)
+      if d
+        self.device = d
+      else
+        d = Device.new :nickname => self.device_nickname
+        d.save
+        self.device = d       
+      end
+    end
+  end
+  
 end

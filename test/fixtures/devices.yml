@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+ipod_touch:
+  nickname: iPod touch
+  summary: MyText
+
+iphone:
+  nickname: iPhone
+  summary: MyText

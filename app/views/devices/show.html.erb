@@ -1,0 +1,14 @@
+<h1>デバイス詳細</h1>
+<p>
+  <b>デバイス名称:</b>
+  <%=h @device.nickname %>
+</p>
+
+<p>
+  <b>説明:</b>
+  <%=h @device.summary %>
+</p>
+
+
+<%= link_to '編集', edit_device_path(@device) %> |
+<%= link_to 'デバイス一覧へ', devices_path %>
