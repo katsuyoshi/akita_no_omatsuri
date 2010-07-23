@@ -17,10 +17,10 @@
 
 <% locations.each do |location| %>
   <tr>
-    <td><%=h location.latitude %></td>
-    <td><%=h location.longitude %></td>
+    <td><%= number_with_precision(location.latitude, :precision => 8)  %></td>
+    <td><%= number_with_precision(location.longitude, :precision => 8)  %></td>
     <td><%=h location.horizontal_accuracy %></td>
-    <td><%=h location.heading %></td>
+    <td><%= number_with_precision(location.heading, :precision => 8)  %></td>
     <td><%=h location.heading_accuracy %></td>
     <td><%=h location.timestamp %></td>
     <td><%=h truncate(location.device.nickname, 16) if location.device %></td>
