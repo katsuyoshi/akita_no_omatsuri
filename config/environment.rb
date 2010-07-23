@@ -41,3 +41,4 @@ Rails::Initializer.run do |config|
 end
 
 Time::DATE_FORMATS[:default] = "%Y-%m-%d %X"
+Time::DATE_FORMATS[:short] = "%m/%d %X"
