@@ -1,0 +1,9 @@
+  <tr>
+    <td><%= location.latitude %></td>
+    <td><%= location.longitude %></td>
+    <td><%= location.horizontal_accuracy %></td>
+    <td><%= location.heading %></td>
+    <td><%= location.heading_accuracy %></td>
+    <td><%= location.timestamp.to_s(:short) %></td>
+    <td><%= location.device.nickname if location.device %></td>
+  </tr>
