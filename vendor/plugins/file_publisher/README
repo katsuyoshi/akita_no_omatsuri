@@ -1,0 +1,109 @@
+= FilePublisher
+
+FilePublisherは静的コンテンツをアプリケーション経由で公開するための
+プラグインです。静的コンテンツはpublicディレクトリ以下に配置し、
+アプリケーションを経由せずにウェブサーバが処理するのが通常ですが、
+以下のような要望に対して柔軟に対応するのが難しい場合があります。
+
+* 静的コンテンツに対して認証によるアクセス制限をかけたい
+* モバイル向けのアプリケーションでセッションIDをURLに埋め込む場合などに、
+  静的コンテンツについても同様の処理を行いたい
+* ソースコードと静的コンテンツの管理者を分離したい
+
+FilePublisherは静的ファイルを扱うための以下の機能を提供します。
+
+* ファイルを公開するためのコントローラ
+* 公開ファイルへのURLを生成するヘルパメソッド
+* ファイルをビューに埋め込むためのヘルパメソッド
+
+例えば、/path/to/public以下に静的コンテンツを配置する場合、
+/path/to/public/example.txtを以下のURLにより公開することができます。
+
+  http://hostname/contents/example.txt
+
+== インストール
+
+  ./script/plugin install <plugin URL>
+
+<plugin URL>にはFilePublisherが公開されているリポジトリURLを指定します。
+
+
+== 設定
+
+config/initializers以下にfile_publisher.rbを作成し、
+FilePublisher.load_configにHashを指定します。
+設定可能なパラメータは以下のとおりです。
+
+: :root
+   公開するディレクトリを指定します。
+
+: :index_file
+   ディレクトリを参照したときに返すファイル名を配列で指定します。
+   (デフォルトは["index.html", "index.htm"]です。)ディレクトリに対応
+   するURLが参照された場合、これらのファイルが存在すればその内容を
+   レスポンスとして返却します。存在しなければ404(NotFound)となります。
+
+: :nondisclosure_name
+   公開したくないディレクトリ名・ファイル名を正規表現で指定します。
+   リクエストパスが正規表現にマッチすると404(NotFound)を返します。
+
+   デフォルトではリクエストパスに.ht, .cgi, .fcgi, .svn, CVSを
+   含むとき404になります。これらに加えて他のディレクトリやファイルを
+   非公開にしたい場合にこのオプションを使用してください。
+
+   この正規表現はパスの各階層と比較されます。
+   例えばhttp://hostname/contents/path/to/fileへのアクセスの場合、
+   "path", "to", "file"の文字列それぞれと正規表現が比較されます。
+
+
+=== 設定例
+
+  FilePublisher.load_config(
+    :root => '/path/to/public',
+    :index_file => %w(index.html index.htm index.txt),
+    :nondisclosure_name => /.*\.shtml\z/i
+  )
+
+== 各機能の説明
+
+=== FilePublisher::ContentsController
+
+静的コンテンツを公開するためのコントローラです。デフォルトでは/contents
+以下にルーティングが設定されます。詳しくはinit.rbを参照してください。
+
+  http://example.com/contents/<公開ディレクトリからファイルへの相対パス>
+
+((':root'))で指定したディレクトリを/path/to/publicとすると、URLと
+ローカルファイルは以下のように対応します。
+
+  URL                                      |  ローカルファイル
+  -----------------------------------------+---------------------------------
+  http://example.com/contents/foo.html     |  /path/to/public/foo.html
+  http://example.com/contents/foo/bar.jpg  |  /path/to/public/foo/bar.jpg
+  http://example.com/contents/hoge/        |  /path/to/public/hoge/index.html
+                                           |  /path/to/public/hoge/index.htm
+
+ディレクトリを参照した場合はそのディレクトリの下のindex.htmlがレスポンス
+になります。index.htmlがない場合はindex.htmがレスポンスになります。
+
+=== FilePublisher::ContentsHelper
+
+以下のヘルパメソッドを提供するモジュールです。
+引数のpathは公開ディレクトリからの相対パスです。
+
+==== filepub_url_for(path)
+
+pathで指定したファイルのURLを返します。
+
+==== filepub_link_to(name, path, html_options = {})
+
+pathで指定したファイルへのリンクを返します。
+
+==== filepub_image_tag(path, html_options = {})
+
+pathで指定した画像のimgタグを返します。
+
+==== filepub_include_file(path)
+
+pathで指定したファイルの内容を返します。
+テンプレート中にファイルの内容を埋め込む場合に使用します。

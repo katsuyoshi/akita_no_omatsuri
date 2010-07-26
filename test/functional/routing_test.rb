@@ -42,40 +42,40 @@ class RoutesTest < ActionController::TestCase
 
 
   # -----
-  test "/kakunodate/hikiyamas" do
-    assert_routing "/kakunodate/hikiyamas", { :controller => 'hikiyamas',  :action => 'index', :omatsuri => 'kakunodate' }
+  test "/omatsuri/kakunodate/hikiyamas" do
+    assert_routing "/omatsuri/kakunodate/hikiyamas", { :controller => 'hikiyamas',  :action => 'index', :omatsuri => 'kakunodate' }
   end
 
 
-  test "/kakunodate/sugazawa/locations" do
-    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, "/kakunodate/sugazawa/locations")
+  test "/omatsuri/kakunodate/sugazawa/locations" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, "/omatsuri/kakunodate/sugazawa/locations")
   end
 
-  test "/kakunodate/sugazawa/locations by date" do
-    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :date => '2010-07-19' }, "/kakunodate/sugazawa/locations/2010-07-19")
+  test "/omatsuri/kakunodate/sugazawa/locations by date" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :date => '2010-07-19' }, "/omatsuri/kakunodate/sugazawa/locations/2010-07-19")
   end
 
-  test "/kakunodate/sugazawa/locations by date 2" do
-    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :date => '2010-7-1' }, "/kakunodate/sugazawa/locations/2010-7-1")
+  test "/omatsuri/kakunodate/sugazawa/locations by date 2" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :date => '2010-7-1' }, "/omatsuri/kakunodate/sugazawa/locations/2010-7-1")
   end
 
-  test "/kakunodate/sugazawa/locations by start_at and end_at" do
-    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-07-19-000000', :end_at => '2010-07-20-000000' }, "/kakunodate/sugazawa/locations/2010-07-19-000000/2010-07-20-000000")
+  test "/omatsuri/kakunodate/sugazawa/locations by start_at and end_at" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-07-19-000000', :end_at => '2010-07-20-000000' }, "/omatsuri/kakunodate/sugazawa/locations/2010-07-19-000000/2010-07-20-000000")
   end
 
-  test "/kakunodate/sugazawa/locations by start_at and end_at 2" do
-    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-7-1-000000', :end_at => '2010-7-2-000000' }, "/kakunodate/sugazawa/locations/2010-7-1-000000/2010-7-2-000000")
+  test "/omatsuri/kakunodate/sugazawa/locations by start_at and end_at 2" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-7-1-000000', :end_at => '2010-7-2-000000' }, "/omatsuri/kakunodate/sugazawa/locations/2010-7-1-000000/2010-7-2-000000")
   end
 
 
 
 
-  test "/kakunodate/sugazawa/locations/new" do
-    assert_recognizes({ :controller => 'locations',  :action => 'new', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, "/kakunodate/sugazawa/locations/new")
+  test "/omatsuri/kakunodate/sugazawa/locations/new" do
+    assert_recognizes({ :controller => 'locations',  :action => 'new', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, "/omatsuri/kakunodate/sugazawa/locations/new")
   end
 
-  test "/kakunodate/sugazawa/location" do
-    assert_recognizes({ :controller => 'locations',  :action => 'create', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, { :path => "/kakunodate/sugazawa/location", :method => :post} )
+  test "/omatsuri/kakunodate/sugazawa/location" do
+    assert_recognizes({ :controller => 'locations',  :action => 'create', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, { :path => "/omatsuri/kakunodate/sugazawa/location", :method => :post} )
   end
 
 

@@ -1,24 +1,23 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :devices
 
-
-  map.hikiyamas("/:omatsuri/hikiyamas.:format",
-    :controller => 'hikiyamas', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/ })
+  map.hikiyamas("/omatsuri/:omatsuri/hikiyamas.:format",
+    :controller => 'hikiyamas', :action => 'index' )
     
-  map.locations("/:omatsuri/:hikiyama/locations.:format",
-    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ })
+  map.locations("/omatsuri/:omatsuri/:hikiyama/locations.:format",
+    :controller => 'locations', :action => 'index' )
 
-  map.create_location("/:omatsuri/:hikiyama/location.:format",
-    :controller => 'locations', :action => 'create', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ }, :conditions => { :method => :post })
+  map.create_location("/omatsuri/:omatsuri/:hikiyama/location.:format",
+    :controller => 'locations', :action => 'create', :conditions => { :method => :post })
 
-  map.locations_by_date("/:omatsuri/:hikiyama/locations/:date.:format",
-    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/, :date => /\d{4}-\d{1,2}-\d{1,2}/ })
+  map.locations_by_date("/omatsuri/:omatsuri/:hikiyama/locations/:date.:format",
+    :controller => 'locations', :action => 'index', :requirements => { :date => /\d{4}-\d{1,2}-\d{1,2}/ })
 
-  map.locations_by_start_at_and_end_at("/:omatsuri/:hikiyama/locations/:start_at/:end_at.:format",
-    :controller => 'locations', :action => 'index', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/, :start_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/ })
+  map.locations_by_start_at_and_end_at("/omatsuri/:omatsuri/:hikiyama/locations/:start_at/:end_at.:format",
+    :controller => 'locations', :action => 'index', :requirements => { :start_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-\d{6}/ })
 
-  map.new_locations("/:omatsuri/:hikiyama/locations/new.:format",
-    :controller => 'locations', :action => 'new', :requirements => { :omatsuri => /(?!omatsuris)\w+/, :hikiyamas => /(?!hikiyamas)\w+/ })
+  map.new_locations("/omatsuri/:omatsuri/:hikiyama/locations/new.:format",
+    :controller => 'locations', :action => 'new' )
 
     
   map.resources :omatsuris do |omatsuri|
@@ -26,7 +25,6 @@ ActionController::Routing::Routes.draw do |map|
     omatsuri.resources :track_infos
   end
   
-  map.resources :devices
 
   # The priority is based upon order of creation: first created -> highest priority.
 
