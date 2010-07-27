@@ -16,5 +16,14 @@
 }
 
 #locations table {
+  border-collapse: separate;
+}
+
+#locations table, th, td, tr {
+  border: 1px #cccccc solid;
+  border-spacing: 0px;
+}
+
+#locations td {
   text-align: right;
 }
