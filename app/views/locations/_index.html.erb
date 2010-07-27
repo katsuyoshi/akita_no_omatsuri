@@ -8,6 +8,7 @@
 <% end %>
 </p>
 
+<div id="locations">
 <table>
   <tr>
     <th>緯度(南北)</th>
@@ -16,13 +17,17 @@
     <th>方向</th>
     <th>方向精度</th>
     <th>時刻</th>
-    <th>デバイス名称</th>
+    <th>バッテリー</th>
+    <th></th>
   </tr>
 
 <%= locations.collect{|location|render_location2(location)}.join %>
 
 </table>
+</div>
+
 
 <br />
 
 <%= link_to '位置情報追加', new_omatsuri_hikiyama_location_path(@omatsuri, @hikiyama) %>
+

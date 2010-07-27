@@ -5,5 +5,6 @@
     <td><%= number_with_precision(location.heading, :precision => 8)  %></td>
     <td><%=h location.heading_accuracy %></td>
     <td><%= location.timestamp.to_s(:short) %></td>
-    <td><%=h truncate(location.device.nickname, 20) if location.device %></td>
+    <td><%= number_to_percentage(location.battery_level * 100.0, :precision => 0)  if location.battery_level %></td>
+    <td><%= link_to '詳細', omatsuri_hikiyama_location_path(@omatsuri, @hikiyama, location) %>
   </tr>

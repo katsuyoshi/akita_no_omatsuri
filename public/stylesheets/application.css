@@ -14,3 +14,7 @@
   width: 150px;
   float: left;
 }
+
+#locations table {
+  text-align: right;
+}

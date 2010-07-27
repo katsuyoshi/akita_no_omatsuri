@@ -31,13 +31,14 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
+      format.json  { render :json => @location }
     end
   end
 
   # GET /locations/new
   # GET /locations/new.xml
   def new
-    @location = Location.new(:latitude => 39.5, :longitude => 140.6, :horizontal_accuracy => 30.0, :heading => 0, :heading_accuracy => 0, :timestamp => Time.now, :device_nickname => "Web")
+    @location = Location.new(:latitude => 39.5, :longitude => 140.6, :horizontal_accuracy => 30.0, :heading => 0, :heading_accuracy => 0, :timestamp => Time.now, :device_nickname => "Web", :battery_level => 0.875)
      
     respond_to do |format|
       format.html # new.html.erb

@@ -1,38 +1,45 @@
-<p>
-  <b>Omatsuri:</b>
-  <%=h @location.omatsuri_id %>
-</p>
+<h1><%= @omatsuri.name %></h1>
+<h2><%= "#{@hikiyama.name}(#{@hikiyama.code})" %></h2>
 
 <p>
-  <b>Latitude:</b>
+  <b>緯度:</b>
   <%=h @location.latitude %>
 </p>
 
 <p>
-  <b>Longitude:</b>
+  <b>経度:</b>
   <%=h @location.longitude %>
 </p>
 
 <p>
-  <b>Horizontal accuracy:</b>
+  <b>位置精度:</b>
   <%=h @location.horizontal_accuracy %>
 </p>
 
 <p>
-  <b>Heading:</b>
+  <b>方向:</b>
   <%=h @location.heading %>
 </p>
 
 <p>
-  <b>Heading accuracy:</b>
+  <b>方向精度:</b>
   <%=h @location.heading_accuracy %>
 </p>
 
 <p>
-  <b>Timestamp:</b>
+  <b>時刻:</b>
   <%=h @location.timestamp %>
 </p>
 
+<p>
+  <b>バッテリー残量:</b>
+  <%=h @location.battery_level %>
+</p>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<p>
+  <b>デバイス名称:</b>
+  <%=h @location.device.nickname %>
+</p>
+
+
+<%= link_to 'Back', locations_path(:omatsuri => @omatsuri.code, :hikiyama => @hikiyama.code) %>
