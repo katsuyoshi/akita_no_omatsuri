@@ -11,8 +11,10 @@ class LocationsController < ApplicationController
         @locations = @hikiyama.locations.by_date(DateTime.parse(params[:date]))
     elsif params[:start_at] && params[:end_at]
         @locations = @hikiyama.locations.by_start_at_and_end_at(to_date(params[:start_at]), to_date(params[:end_at]))
+        @asending = true
     else
         @locations = @hikiyama.locations.recent(20)
+        @asending = false
         @show_limited = true
     end
 

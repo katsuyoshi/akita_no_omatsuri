@@ -1,10 +1,10 @@
   <tr>
-    <td><%= number_with_precision(location.latitude, :precision => 8)  %></td>
-    <td><%= number_with_precision(location.longitude, :precision => 8)  %></td>
-    <td><%=h location.horizontal_accuracy %></td>
-    <td><%= number_with_precision(location.heading, :precision => 8)  %></td>
-    <td><%=h location.heading_accuracy %></td>
-    <td><%= location.timestamp.to_s(:short) %></td>
-    <td><%= number_to_percentage(location.battery_level * 100.0, :precision => 0)  if location.battery_level %></td>
+    <td<%= changed_class location.latitude, reference.latitude %>><%= number_with_precision(location.latitude, :precision => 8)  %></td>
+    <td<%= changed_class location.longitude, reference.longitude %>><%= number_with_precision(location.longitude, :precision => 8)  %></td>
+    <td<%= changed_class location.horizontal_accuracy, reference.horizontal_accuracy %>><%=h location.horizontal_accuracy %></td>
+    <td<%= changed_class location.heading, reference.heading %>><%= number_with_precision(location.heading, :precision => 8)  %></td>
+    <td<%= changed_class location.heading_accuracy, reference.heading_accuracy %>><%=h location.heading_accuracy %></td>
+    <td<%= changed_class location.timestamp, reference.timestamp %>><%= location.timestamp.to_s(:short) %></td>
+    <td<%= changed_class location.battery_level, reference.battery_level %>><%= number_to_percentage(location.battery_level * 100.0, :precision => 0)  if location.battery_level %></td>
     <td><%= link_to '詳細', omatsuri_hikiyama_location_path(@omatsuri, @hikiyama, location) %>
   </tr>

@@ -8,7 +8,7 @@
 <% end %>
 </p>
 
-<div id="locations">
+<div class="locations">
 <table>
   <tr>
     <th>緯度(南北)</th>
@@ -21,7 +21,17 @@
     <th></th>
   </tr>
 
-<%= locations.collect{|location|render_location2(location)}.join %>
+<% reference = Location.new; count = locations.size %>
+<% locations.each_with_index do |location, index| %>
+  <%= render_location2(location, reference) %>
+  <%
+      if @asendiing
+        reference = location
+      else
+        reference = locations[index + 2] if index + 2 < count
+      end
+  %>
+<% end %>
 
 </table>
 </div>

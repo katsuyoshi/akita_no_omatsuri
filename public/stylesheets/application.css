@@ -15,15 +15,22 @@
   float: left;
 }
 
-#locations table {
+div.locations table {
   border-collapse: separate;
 }
 
-#locations table, th, td, tr {
+div.locations table,
+div.locations th,
+div.locations td,
+div.locations tr {
   border: 1px #cccccc solid;
   border-spacing: 0px;
 }
 
-#locations td {
+div.locations td {
   text-align: right;
+}
+
+td.changed {
+  background-color: #ffcccc;
 }
