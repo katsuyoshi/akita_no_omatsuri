@@ -1,4 +1,4 @@
-require 'rmagick'
+require 'RMagick'
 
 class Icon < ActiveRecord::Base
   has_attachment :storage => :file_system, :path_prefix => 'public/icon', :content_type => :image
