@@ -23,14 +23,21 @@
 
 <% reference = Location.new; count = locations.size %>
 <% locations.each_with_index do |location, index| %>
-  <%= render_location2(location, reference) %>
-  <%
-      if asending
-        reference = location
-      else
-        reference = locations[index + 2] if index + 2 < count
-      end
+  <% if asending
+       if index == 0
+         reference = Location.new
+       else
+         reference = locations[index - 1]
+       end
+     else
+       if index == count - 1
+         reference = Location.new
+       else
+         reference = locations[index + 1]
+       end
+     end
   %>
+  <%= render_location2(location, reference) %>
 <% end %>
 
 </table>
