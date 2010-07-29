@@ -1,7 +1,7 @@
 class HikiyamasController < ApplicationController
   layout "application"
 
-  before_filter :capture_omatsuri
+  before_filter :capture_omatsuri, :except => ['show_icon']
 
   # GET /hikiyamas
   # GET /hikiyamas.xml
@@ -89,7 +89,18 @@ class HikiyamasController < ApplicationController
   end
 
 
-
+  def upload
+    @hikiyama = Hikiyama.find(params[:id])
+    @icon = Icon.new(params[:icon])
+    if @hikiyama.icons << @icon
+      flash[:notice] = 'Icon was successfully updated.'
+      redirect_to([@omatsuri, @hikiyama])
+    else
+      redirect_to([@omatsuri, @hikiyama], :icon => @icon)
+    end
+  end
+    
+  
   private
   
   def capture_omatsuri

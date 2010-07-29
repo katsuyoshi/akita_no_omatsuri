@@ -1,0 +1,23 @@
+<h2>アイコン</h2>
+
+<% form_for(:icon, :html => { :multipart => true },
+                   :url => { :controller => 'hikiyamas', :action => 'upload', :id => hikiyama, :omatsuri_id => hikiyama.omatsuri}) do |f| %>
+  <%= error_messages_for :icon %>
+  <%= f.error_messages %>
+
+  <%= f.label :uploaded_data, "登録するアイコン" %>
+  <%= f.file_field :uploaded_data %>
+  <br />
+
+  <%= f.label :set_count, "アイコン作成数" %>
+  <%= f.text_field :set_count, :value => 16, :size => 4 %>
+  <br />
+
+  <%= f.submit "アップロード" %>
+<% end %>
+
+<table>
+  <% for icon in hikiyama.icons %>
+    <%= render :partial => 'icon_set', :locals => { :icon => icon } %>
+  <% end %>
+</table>

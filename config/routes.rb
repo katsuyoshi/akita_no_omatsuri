@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
 
     
   map.resources :omatsuris do |omatsuri|
-    omatsuri.resources :hikiyamas, :has_many => :locations
+    omatsuri.resources :hikiyamas, :has_many => [:locations, :icons]
     omatsuri.resources :track_infos
   end
   

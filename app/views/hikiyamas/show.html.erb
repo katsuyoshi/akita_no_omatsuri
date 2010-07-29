@@ -11,6 +11,11 @@
 
 <hr />
 
+<%= render :partial => 'new_icon', :locals => { :hikiyama => @hikiyama } %>
+
+<hr />
+
+
 <%= render :partial => '/locations/index.html.erb', :locals => { :locations => @hikiyama.locations.recent(10), :show_limited => true, :asending => false } %>
 <br />
 

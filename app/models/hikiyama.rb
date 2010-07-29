@@ -4,6 +4,7 @@ class Hikiyama < ActiveRecord::Base
 
   belongs_to :omatsuri
   has_many :locations, :dependent => :destroy
+  has_many :icons, :dependent => :destroy
 
   def validate
     unless self.url.blank?

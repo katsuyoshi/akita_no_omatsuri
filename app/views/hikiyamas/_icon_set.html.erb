@@ -1,0 +1,9 @@
+<tr>
+<td><%= link_to (tag("img", :src => icon.public_filename, :height => 32), icon.public_filename) %></td>
+<td>
+  <% for filename in icon.icon_filename_set %>
+    <%= link_to (tag("img", :src => filename, :width => 40), filename) %>
+  <% end %>
+</td>
+<td><%= link_to '削除', [icon.hikiyama.omatsuri, icon.hikiyama, icon], :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
