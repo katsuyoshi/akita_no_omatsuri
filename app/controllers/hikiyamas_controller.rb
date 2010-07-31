@@ -15,6 +15,22 @@ class HikiyamasController < ApplicationController
     end
   end
 
+  def hikiyamas_location
+    @locations = @omatsuri.hikiyamas.collect do |h|
+      d = h.locations.recent(1).first
+      d = {} if d.nil?
+      d[:hikiyama_name] = h.name
+      d
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
+      format.json  { render :json => @locations }
+    end
+  end
+
+
   # GET /hikiyamas/1
   # GET /hikiyamas/1.xml
   def show

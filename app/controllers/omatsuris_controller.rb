@@ -12,7 +12,7 @@ class OmatsurisController < ApplicationController
       format.json  { render :json => @omatsuris }
     end
   end
-
+  
   # GET /omatsuris/1
   # GET /omatsuris/1.xml
   def show

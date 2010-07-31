@@ -1,0 +1,37 @@
+<h2>最新位置</h2>
+
+<div class="locations">
+<table>
+  <tr>
+    <th>曳山/丁内名</th>
+    <th>緯度(南北)</th>
+    <th>経度(東西)</th>
+    <th>位置精度</th>
+    <th>方向</th>
+    <th>方向精度</th>
+    <th>時刻</th>
+    <th>バッテリー</th>
+  </tr>
+
+<% for location in @locations %>
+
+  <tr>
+    <td><%=h location[:hikiyama_name] %></td>
+    <td><%= number_with_precision(location[:latitude], :precision => 8) if location[:latitude] %></td>
+    <td><%= number_with_precision(location[:longitude], :precision => 8) if location[:longitude] %></td>
+    <td><%=h location[:horizontal_accuracy] if location[:horizontal_accuracy] %></td>
+    <td><%= number_with_precision(location[:heading], :precision => 8) if location[:heading] %></td>
+    <td><%=h location[:heading_accuracy] if location[:heading_accuracy] %></td>
+    <td><%= location[:timestamp].to_s(:short) if location[:timestamp] %></td>
+    <td><%= number_to_percentage(location[:battery_level] * 100.0, :precision => 0)  if location[:battery_level] %></td>
+  </tr>
+
+<% end %>
+</table>
+</div>
+
+<br />
+<br />
+<%= link_to "#{@omatsuri.name}へ戻る", omatsuri_path(@omatsuri) %>
+<br />
+<br />

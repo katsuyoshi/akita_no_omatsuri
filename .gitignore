@@ -8,3 +8,5 @@ db/schema.rb
 Capfile
 config/deploy.rb
 release
+public/icon
+

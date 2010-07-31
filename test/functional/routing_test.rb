@@ -78,6 +78,10 @@ class RoutesTest < ActionController::TestCase
     assert_recognizes({ :controller => 'locations',  :action => 'create', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }, { :path => "/omatsuri/kakunodate/sugazawa/location", :method => :post} )
   end
 
+  test "/omatsuri/kakunodate/locations" do
+    assert_recognizes({ :controller => 'hikiyamas',  :action => 'hikiyamas_location', :omatsuri => 'kakunodate' }, { :path => "/omatsuri/kakunodate/locations", :method => :post} )
+  end
+
 
 
 end

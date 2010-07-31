@@ -5,6 +5,7 @@
 <% @omatsuris.each do |omatsuri| %>
   <tr>
     <td><%=link_to h("#{omatsuri.name}(#{omatsuri.code})"), omatsuri %></td>
+    <td><%= link_to '最新位置を確認する', now_locations_path(omatsuri.code) %></td>
     <td><%= link_to '編集', edit_omatsuri_path(omatsuri) %></td>
     <td><%= link_to '削除', omatsuri, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -14,3 +15,4 @@
 <br />
 
 <%= link_to '新規お祭り', new_omatsuri_path %>
+

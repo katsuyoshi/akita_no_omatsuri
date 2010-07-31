@@ -8,6 +8,10 @@
   <%=h @omatsuri.summary %>
 </p>
 
+<p>
+<%= link_to '最新位置を確認する', now_locations_path(@omatsuri.code) %>
+</p>
+
 <hr />
 
 <%= render :partial => '/track_infos/index.html.erb', :locals => { :track_infos => @omatsuri.track_infos } %>

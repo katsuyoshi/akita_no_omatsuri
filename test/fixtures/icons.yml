@@ -4,12 +4,10 @@ one:
   hikiyama_id: 1
   content_type: MyString
   filename: MyString
-  db_file_id: 1
   size: 1
 
 two:
   hikiyama_id: 1
   content_type: MyString
   filename: MyString
-  db_file_id: 1
   size: 1

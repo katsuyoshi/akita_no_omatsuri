@@ -4,6 +4,9 @@ ActionController::Routing::Routes.draw do |map|
   map.hikiyamas("/omatsuri/:omatsuri/hikiyamas.:format",
     :controller => 'hikiyamas', :action => 'index' )
     
+  map.now_locations("/omatsuri/:omatsuri/locations.:format",
+    :controller => 'hikiyamas', :action => 'hikiyamas_location' )
+    
   map.locations("/omatsuri/:omatsuri/:hikiyama/locations.:format",
     :controller => 'locations', :action => 'index' )
 
