@@ -1,6 +1,6 @@
 <% form_tag({ :controller => "locations", :action => "index", :omatsuri => @omatsuri.code, :hikiyama => @hikiyama.code }, :method => :get) do %>
 　　<b>開始条件:</b>	<%= text_field_tag "start_at", params[:start_at] %>
-　　<b>終了条件:</b>	<%= text_field_tag "end_at", params[:start_at] %>
+　　<b>終了条件:</b>	<%= text_field_tag "end_at", params[:end_at] %>
 	<%= submit_tag "検索"%>
 <% end %>
 
