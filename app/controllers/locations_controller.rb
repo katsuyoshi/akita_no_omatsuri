@@ -116,7 +116,10 @@ class LocationsController < ApplicationController
   def to_date str
     a = str.split('-')
     t = a[3]
-    str = [a[0,3].join('-'), [t[0,2], t[2,2], t[4,2]].join(':')].join(' ')
+    h = t[0,2]
+    m = (t.size >= 4) ? t[2, 2] : '00'
+    s = (t.size >= 6) ? t[4, 2] : '00'
+    str = [a[0,3].join('-'), [h, m, s].join(":")].join(' ')
     DateTime.parse(str)
   end
   
