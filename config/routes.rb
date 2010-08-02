@@ -7,7 +7,10 @@ ActionController::Routing::Routes.draw do |map|
   map.now_locations("/omatsuri/:omatsuri/locations.:format",
     :controller => 'hikiyamas', :action => 'hikiyamas_location' )
     
-  map.show_icon("/omatsuri/:omatsuri/:hikiyama/icon/:icon/:rad",
+  map.show_icon("/omatsuri/:omatsuri/:hikiyama/icon/:no/:rad",
+    :controller => 'hikiyamas', :action => 'show_icon', :requirements => { :no => /\d+/} )
+
+  map.show_icon_2("/omatsuri/:omatsuri/:hikiyama/icon/:icon/:rad",
     :controller => 'hikiyamas', :action => 'show_icon' )
 
   map.locations("/omatsuri/:omatsuri/:hikiyama/locations.:format",

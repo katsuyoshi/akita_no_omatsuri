@@ -32,7 +32,11 @@ class HikiyamasController < ApplicationController
   
   def show_icon
     @hikiyama = Hikiyama.find_by_code(params[:hikiyama])
-    icon = @hikiyama.icons.find(:first, :conditions => ["filename like ?", params[:icon] + '.%'])
+    if params[:no]
+      icon = @hikiyama.icons[params[:no].to_i]
+    else
+      icon = @hikiyama.icons.find(:first, :conditions => ["filename like ?", params[:icon] + '.%'])
+    end
     redirect_to icon.path_for_radian(params[:rad].to_f)
   end
 
