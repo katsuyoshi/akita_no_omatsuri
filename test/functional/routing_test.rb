@@ -67,6 +67,14 @@ class RoutesTest < ActionController::TestCase
     assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-7-1-000000', :end_at => '2010-7-2-000000' }, "/omatsuri/kakunodate/sugazawa/locations/2010-7-1-000000/2010-7-2-000000")
   end
 
+  test "/omatsuri/kakunodate/sugazawa/locations by start_at and end_at 3" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-7-1-0000', :end_at => '2010-7-2-0000' }, "/omatsuri/kakunodate/sugazawa/locations/2010-7-1-0000/2010-7-2-0000")
+  end
+
+  test "/omatsuri/kakunodate/sugazawa/locations by start_at and end_at 4" do
+    assert_recognizes({ :controller => 'locations',  :action => 'index', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa', :start_at => '2010-7-1-00', :end_at => '2010-7-2-00' }, "/omatsuri/kakunodate/sugazawa/locations/2010-7-1-00/2010-7-2-00")
+  end
+
 
 
 

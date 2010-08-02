@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'locations', :action => 'index', :requirements => { :date => /\d{4}-\d{1,2}-\d{1,2}/ })
 
   map.locations_by_start_at_and_end_at("/omatsuri/:omatsuri/:hikiyama/locations/:start_at/:end_at.:format",
-    :controller => 'locations', :action => 'index', :requirements => { :start_at => /\d{4}-\d{1,2}-\d{1,2}-\d{2,4,6}/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-\d{2,4,6}/ })
+    :controller => 'locations', :action => 'index', :requirements => { :start_at => /\d{4}-\d{1,2}-\d{1,2}-(\d{2}|\d{4}|\d{6})/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-(\d{2}|\d{4}|\d{6})/ })
 
   map.new_locations("/omatsuri/:omatsuri/:hikiyama/locations/new.:format",
     :controller => 'locations', :action => 'new' )
