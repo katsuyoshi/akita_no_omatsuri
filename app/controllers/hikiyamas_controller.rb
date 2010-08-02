@@ -29,6 +29,12 @@ class HikiyamasController < ApplicationController
       format.json  { render :json => @locations }
     end
   end
+  
+  def show_icon
+    @hikiyama = Hikiyama.find_by_code(params[:hikiyama])
+    icon = @hikiyama.icons.find(:first, :conditions => ["filename like ?", params[:icon] + '.%'])
+    redirect_to icon.path_for_radian(params[:rad].to_f)
+  end
 
 
   # GET /hikiyamas/1
