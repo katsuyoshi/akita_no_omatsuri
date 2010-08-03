@@ -4,4 +4,13 @@
 	<%= submit_tag "検索"%>
 <% end %>
 
+<%
+    url = "/uprun/viewMap.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
+    url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
+    url += ".json"
+ %>
+ 
+<br />
+<%= link_to "map viewerで開く", url, :target => '_blank' %>
+<br />
 <%= render :partial => 'index', :locals => { :locations => @locations, :show_limited => @show_limited, :asending => @asending } %>
