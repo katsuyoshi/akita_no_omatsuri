@@ -2,7 +2,10 @@
     <td<%= changed_class location.latitude, reference.latitude %>><%= number_with_precision(location.latitude, :precision => 8)  %></td>
     <td<%= changed_class location.longitude, reference.longitude %>><%= number_with_precision(location.longitude, :precision => 8)  %></td>
     <td<%= changed_class location.horizontal_accuracy, reference.horizontal_accuracy %>><%=h location.horizontal_accuracy %></td>
-    <td<%= changed_class location.heading, reference.heading %>><%= number_with_precision(location.heading, :precision => 8)  %></td>
+    <td<%= changed_class location.heading, reference.heading %>>
+       <%= number_with_precision(location.heading, :precision => 1)  %>
+       <%= image_tag "/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/icon/0/#{location.heading.to_i}", :height => 20 %>
+    </td>
     <td<%= changed_class location.heading_accuracy, reference.heading_accuracy %>><%=h location.heading_accuracy %></td>
     <td<%= changed_class location.timestamp, reference.timestamp %>><%= location.timestamp.to_s(:short) %></td>
     <td<%= changed_class location.battery_level, reference.battery_level %>><%= number_to_percentage(location.battery_level * 100.0, :precision => 0)  if location.battery_level %></td>
