@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @locations }
-      format.json  { render :json => @locations }
+      format.json  { render :json => @locations.collect {|l| l.json_attributes } }
     end
   end
 

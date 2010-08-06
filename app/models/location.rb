@@ -8,15 +8,15 @@ class Location < ActiveRecord::Base
   attr_accessor :device_nickname
 
   named_scope :by_date, lambda {|date|
-    { :conditions => ['timestamp between ? and ?', date.beginning_of_day, date.end_of_day], :order => 'timestamp'}
+    { :conditions => ['timestamp between ? and ?', date.beginning_of_day, date.end_of_day], :order => 'timestamp' }
   }
 
   named_scope :by_start_at_and_end_at, lambda {|start_at, end_at|
-    { :conditions => ['timestamp between ? and ?', start_at, end_at.ago(1)], :order => 'timestamp'}
+    { :conditions => ['timestamp between ? and ?', start_at, end_at.ago(1)], :order => 'timestamp' }
   }
   
   named_scope :recent, lambda {|limit|
-    { :limit => limit, :order => 'timestamp desc' }
+    { :limit => limit, :order => 'timestamp desc'  }
   }
   
   named_scope :all, { :order => 'timestamp' }
@@ -33,6 +33,15 @@ class Location < ActiveRecord::Base
         self.device = d       
       end
     end
+  end
+  
+  def json_attributes
+    attributes = self.attributes.clone
+    attributes.delete "created_at"
+    attributes.delete "hikiyama_id"
+    attributes.delete "updated_at"
+    attributes.delete "device_id"
+    { :location => attributes }
   end
 
 end

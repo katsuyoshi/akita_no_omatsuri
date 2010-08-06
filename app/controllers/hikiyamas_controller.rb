@@ -16,11 +16,14 @@ class HikiyamasController < ApplicationController
   end
 
   def hikiyamas_location
-    @locations = @omatsuri.hikiyamas.collect do |h|
-      d = h.locations.recent(1).first
-      d = {} if d.nil?
-      d[:hikiyama_name] = h.name
-      d
+    @locations = @omatsuri.hikiyamas.collect do |hikiyama|
+      location = hikiyama.locations.recent(1).first
+      h = {}
+      h[:location] = location.json_attributes[:location] if location
+      h[:name] = hikiyama.name
+      h[:code] = hikiyama.code
+      h[:icons] = hikiyama.icons.collect{|i| File.basename(i.public_filename, ".*") }
+      { :hikiyama => h }
     end
 
     respond_to do |format|
