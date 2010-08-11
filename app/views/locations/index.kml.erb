@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
-  <Placemark>
-    <name>秋田のお祭り「曳山運行情報サービス・角館版」開発プロジェクト</name>
-    <description><%= "#{@omatsuri.name}:#{@hikiyama.name}" %></description>
-    <Point>
-      <coordinates>
-        <% for location in @locations %>
-          <%= "#{location.longitude}, #{location.latitude}" %>
-        <% end %>
-      </coordinates>
-    </Point>
-  </Placemark>
+  <Document>
+    <Folder>
+      <name><%= "#{@omatsuri.name}:#{@hikiyama.name} #{params[:start_at]}-#{params[:end_at]}" %></name>
+      <% for location in @locations %>
+        <Placemark>
+          <name><%= location.timestamp %></name>
+          <description><%= location.json_attributes[:location] %></description>
+          <Point>
+            <coordinates><%= "#{location.longitude}, #{location.latitude}" %></coordinates>
+          </Point>
+        </Placemark>
+      <% end %>
+    </Folder>
+  </Document>
 </kml>
+
+  
