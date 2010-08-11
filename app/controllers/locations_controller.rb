@@ -22,6 +22,7 @@ class LocationsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @locations }
       format.json  { render :json => @locations.collect {|l| l.json_attributes } }
+      format.kml  { render :kml => @locations }
     end
   end
 

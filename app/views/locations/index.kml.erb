@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>秋田のお祭り「曳山運行情報サービス・角館版」開発プロジェクト</name>
+    <description><%= "#{@omatsuri.name}:#{@hikiyama.name}" %></description>
+    <Point>
+      <coordinates>
+        <% for location in @locations %>
+          <%= "#{location.longitude}, #{location.latitude}" %>
+        <% end %>
+      </coordinates>
+    </Point>
+  </Placemark>
+</kml>
