@@ -5,6 +5,12 @@
 <% end %>
 
 <%
+    url = "/uprun/viewMap2.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
+    url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
+    url += ".json"
+ %>
+ 
+<%
     url = "/uprun/viewMap.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
     url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
     url += ".json"
