@@ -5,12 +5,6 @@
 <% end %>
 
 <%
-    url = "/uprun/viewMap2.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
-    url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
-    url += ".json"
- %>
- 
-<%
     url = "/uprun/viewMap.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
     url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
     url += ".json"
@@ -18,5 +12,15 @@
  
 <br />
 <%= link_to "map viewerで開く", url, :target => '_blank' %>
+<%
+    url = "/uprun/viewMap2.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
+    url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
+    url += ".json"
+ %>
+<br />
+<%= link_to "map viewer2で開く", url, :target => '_blank' %>
+ 
+
+
 <br />
 <%= render :partial => 'index', :locals => { :locations => @locations, :show_limited => @show_limited, :asending => @asending } %>
