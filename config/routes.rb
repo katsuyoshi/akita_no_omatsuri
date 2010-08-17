@@ -4,7 +4,10 @@ ActionController::Routing::Routes.draw do |map|
   map.hikiyamas("/omatsuri/:omatsuri/hikiyamas.:format",
     :controller => 'hikiyamas', :action => 'index' )
     
-  map.now_locations("/omatsuri/:omatsuri/locations.:format",
+  map.omatsuri_locations_by_date("/omatsuri/:omatsuri/locations/:date.:format",
+    :controller => 'hikiyamas', :action => 'hikiyamas_location', :requirements => { :date => /\d{4}-\d{1,2}-\d{1,2}-(\d{2}|\d{4}|\d{6})/} )
+    
+  map.omatsuri_locations("/omatsuri/:omatsuri/locations.:format",
     :controller => 'hikiyamas', :action => 'hikiyamas_location' )
     
   map.show_icon("/omatsuri/:omatsuri/:hikiyama/icon/:no/:rad",

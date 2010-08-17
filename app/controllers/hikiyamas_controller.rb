@@ -16,20 +16,35 @@ class HikiyamasController < ApplicationController
   end
 
   def hikiyamas_location
-    @locations = @omatsuri.hikiyamas.collect do |hikiyama|
-      location = hikiyama.locations.recent(1).first
-      h = {}
-      h[:location] = location.json_attributes[:location] if location
-      h[:name] = hikiyama.name
-      h[:code] = hikiyama.code
-      h[:icons] = hikiyama.icons.collect{|i| File.basename(i.public_filename, ".*") }
-      { :hikiyama => h }
-    end
+    timespan = params[:timespan] ? params[:timespan].to_i * 60 : 30 * 60
+    accuracy = params[:accuracy] ? params[:accuracy].to_f : 500.0
+    date = params[:date] ? to_date(params[:date]) : Time.now
+
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {
+        @locations = @omatsuri.hikiyamas.collect do |hikiyama|
+          location = hikiyama.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
+          location ||= {}
+          location[:hikiyama_name] = hikiyama.name
+          location
+        end
+      }
       format.xml  { render :xml => @locations }
-      format.json  { render :json => @locations }
+      format.json  {
+      
+        @locations = @omatsuri.hikiyamas.collect do |hikiyama|
+          location = hikiyama.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
+          h = {}
+          h[:location] = location.json_attributes[:location] if location
+          h[:name] = hikiyama.name
+          h[:code] = hikiyama.code
+          h[:icons] = hikiyama.icons.collect{|i| File.basename(i.public_filename, ".*") }
+          { :hikiyama => h }
+        end
+
+        render :json => @locations
+      }
     end
   end
   
