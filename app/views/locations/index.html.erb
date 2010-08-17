@@ -12,13 +12,6 @@
  
 <br />
 <%= link_to "map viewerで開く", url, :target => '_blank' %>
-<%
-    url = "/uprun/viewMap2.html?/omatsuri/#{@omatsuri.code}/#{@hikiyama.code}/locations"
-    url += "/#{params[:start_at]}/#{params[:end_at]}" if params[:start_at] && params[:end_at]
-    url += ".json"
- %>
-<br />
-<%= link_to "map viewer2で開く", url, :target => '_blank' %>
  
 
 

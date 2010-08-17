@@ -16,9 +16,13 @@ class HikiyamasController < ApplicationController
   end
 
   def hikiyamas_location
-    timespan = params[:timespan] ? (params[:timespan].to_f / (24.0 * 60.0)) : 30.0 * 24.0 * 60.0 / (24.0 * 60.0)
-    accuracy = params[:accuracy] ? params[:accuracy].to_f : 500.0
-    date = params[:date] ? to_date(params[:date]) : DateTime.now
+    params[:timespan] ||= 30 * 24 * 60
+    params[:accuracy] ||= 500
+    params[:date] ||= DateTime.now.strftime("%Y-%m-%d-%H%M%S")
+    
+    timespan = params[:timespan].to_f / (24.0 * 60.0)
+    accuracy = params[:accuracy].to_f
+    date = to_date(params[:date])
 
 
     respond_to do |format|
