@@ -66,7 +66,8 @@ class HikiyamasController < AdminController
   # GET /hikiyamas/1
   # GET /hikiyamas/1.xml
   def show
-    @hikiyama = Hikiyama.find(params[:id])
+    @hikiyama = Hikiyama.find_by_code(params[:hikiyama]) if params[:hikiyama]
+    @hikiyama ||= Hikiyama.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

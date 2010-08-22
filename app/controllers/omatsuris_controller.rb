@@ -16,7 +16,8 @@ class OmatsurisController < AdminController
   # GET /omatsuris/1
   # GET /omatsuris/1.xml
   def show
-    @omatsuri = Omatsuri.find(params[:id])
+    @omatsuri = Omatsuri.find_by_code(params[:omatsuri]) if params[:omatsuri]
+    @omatsuri ||= Omatsuri.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

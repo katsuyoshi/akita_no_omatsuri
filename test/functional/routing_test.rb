@@ -11,6 +11,10 @@ class RoutesTest < ActionController::TestCase
     assert_routing "/omatsuris/1", { :controller => 'omatsuris',  :action => 'show', :id => '1' }
   end
 
+  test "/omatsuri/kakunodate" do
+    assert_routing "/omatsuri/kakunodate", { :controller => 'omatsuris',  :action => 'show', :omatsuri => 'kakunodate' }
+  end
+
   # -----
   test "/omatsuris/1/hikiyamas" do
     assert_routing "/omatsuris/1/hikiyamas", { :controller => 'hikiyamas',  :action => 'index', :omatsuri_id => '1' }
@@ -19,6 +23,11 @@ class RoutesTest < ActionController::TestCase
   test "/omatsuris/1/hikiyamas/2" do
     assert_routing "/omatsuris/1/hikiyamas/2", { :controller => 'hikiyamas',  :action => 'show', :omatsuri_id => '1', :id => '2' }
   end
+
+  test "/omatsuri/kakunodate/sugazawa" do
+    assert_routing "/omatsuri/kakunodate/sugazawa", { :controller => 'hikiyamas',  :action => 'show', :omatsuri => 'kakunodate', :hikiyama => 'sugazawa' }
+  end
+
 
   # -----
   test "/omatsuris/1/hikiyamas/2/locations" do

@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :devices
 
+
   map.hikiyamas("/omatsuri/:omatsuri/hikiyamas.:format",
     :controller => 'hikiyamas', :action => 'index' )
     
@@ -38,6 +39,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.new_locations("/omatsuri/:omatsuri/:hikiyama/locations/new.:format",
     :controller => 'locations', :action => 'new' )
+
+
+  map.hikiyamas("/omatsuri/:omatsuri.:format",
+    :controller => 'omatsuris', :action => 'show' )
+    
+  map.hikiyamas("/omatsuri/:omatsuri/:hikiyama.:format",
+    :controller => 'hikiyamas', :action => 'show' )
+    
 
     
   map.resources :omatsuris do |omatsuri|
