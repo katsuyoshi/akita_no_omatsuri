@@ -21,6 +21,7 @@ class OmatsurisController < AdminController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @omatsuri }
+      format.json { render :json => @omatsuri.json_attributes }      
     end
   end
 

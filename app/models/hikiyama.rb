@@ -22,5 +22,15 @@ class Hikiyama < ActiveRecord::Base
       return false
     end
   end
+
+  def json_attributes
+    attributes = self.attributes.clone
+    attributes.delete "created_at"
+    attributes.delete "updated_at"
+    attributes.delete "omatsuri_id"
+    attributes[:omatsuri_name] = self.omatsuri.name
+    attributes[:omatsuri_code] = self.omatsuri.code
+    { :hikiyama => attributes }
+  end
   
 end

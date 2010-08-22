@@ -71,6 +71,7 @@ class HikiyamasController < AdminController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @hikiyama }
+      format.json { render :json => @hikiyama.json_attributes }      
     end
   end
 

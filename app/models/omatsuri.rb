@@ -22,4 +22,11 @@ class Omatsuri < ActiveRecord::Base
     end
   end
   
+  def json_attributes
+    attributes = self.attributes.clone
+    attributes.delete "created_at"
+    attributes.delete "updated_at"
+    { :omatsuri => attributes }
+  end
+  
 end
