@@ -22,5 +22,8 @@
 <br />
 
 
+<% if logged_in? -%>
 <%= link_to "編集", edit_omatsuri_hikiyama_path(@omatsuri, @hikiyama) %> |
+<% end %>
+
 <%= link_to "#{@omatsuri.name}へ", @omatsuri %>

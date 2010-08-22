@@ -27,5 +27,7 @@
 <br />
 
 <br />
+<% if logged_in? -%>
 <%= link_to "編集", edit_omatsuri_path(@omatsuri) %> |
+<% end %>
 <%= link_to 'お祭り一覧へ', omatsuris_path %>

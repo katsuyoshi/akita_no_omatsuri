@@ -17,5 +17,8 @@
 </p>
 
 
+<% if logged_in? %>
 <%= link_to '編集', edit_omatsuri_track_info_path(@omatsuri, @track_info) %> |
+<% end %>
+
 <%= link_to "#{@omatsuri.name}へ", @omatsuri %>

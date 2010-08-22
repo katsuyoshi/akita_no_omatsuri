@@ -1,4 +1,4 @@
-class HikiyamasController < ApplicationController
+class HikiyamasController < AdminController
   layout "application"
 
   before_filter :capture_omatsuri, :except => ['show_icon']

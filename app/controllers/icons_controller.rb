@@ -1,4 +1,4 @@
-class IconsController < ApplicationController
+class IconsController < AdminController
   layout "application"
 
   def destroy

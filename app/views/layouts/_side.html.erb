@@ -1,6 +1,14 @@
 <div id="side">
   <ul>
+
+    <% if logged_in? %>
+      <li><%= link_to "Log out",  logout_path,  { :title => "Log out" } %></li>
+    <% else %>
+      <li><%= link_to "Log in",  login_path,  { :title => "Log in" } %></li>
+    <% end %>
+    
     <li><%= link_to 'お祭り一覧', omatsuris_path %></li>
     <li><%= link_to 'デバイス一覧', devices_path %></li>
+    
   </ul>
 </div>

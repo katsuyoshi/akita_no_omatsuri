@@ -1,4 +1,4 @@
-class TrackInfosController < ApplicationController
+class TrackInfosController < AdminController
   layout "application"
 
   before_filter :capture_omatsuri

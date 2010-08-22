@@ -1,5 +1,6 @@
 <h2>アイコン</h2>
 
+<% if logged_in? -%>
 <% form_for(:icon, :html => { :multipart => true },
                    :url => { :controller => 'hikiyamas', :action => 'upload', :id => hikiyama, :omatsuri_id => hikiyama.omatsuri}) do |f| %>
   <%= error_messages_for :icon %>
@@ -14,6 +15,7 @@
   <br />
 
   <%= f.submit "アップロード" %>
+<% end %>
 <% end %>
 
 <table>

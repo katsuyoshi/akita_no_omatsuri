@@ -4,12 +4,18 @@
 <% hikiyamas.each do |hikiyama| %>
   <tr>
     <td><%= link_to h("#{hikiyama.name}(#{hikiyama.code})"), omatsuri_hikiyama_path(@omatsuri, hikiyama)  %></td>
+
+<% if logged_in? -%>
     <td><%= link_to '編集', edit_omatsuri_hikiyama_path(@omatsuri, hikiyama) %></td>
     <td><%= link_to '削除', [@omatsuri, hikiyama], :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if logged_in? -%>
 <%= link_to '曳山(丁内)追加', new_omatsuri_hikiyama_path(@omatsuri) %>
+<% end %>

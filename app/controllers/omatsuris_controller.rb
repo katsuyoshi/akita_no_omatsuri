@@ -1,4 +1,4 @@
-class OmatsurisController < ApplicationController
+class OmatsurisController < AdminController
   layout "application"
 
   # GET /omatsuris
