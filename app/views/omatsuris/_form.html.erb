@@ -1,0 +1,47 @@
+<% form_for(@omatsuri) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code, 'コード' %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :name, 'タイトル' %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url, 'ホームページ' %><br />
+    <%= f.text_field :url, :size => 80 %>
+  </p>
+  <p>
+    <%= f.label :use_heading, '向きデータ使用する' %><br />
+    <%= f.check_box :use_heading %>
+  </p>
+  <p>
+    <%= f.label :summary, '概要' %><br />
+    <%= f.text_area :summary %>
+  </p>
+  
+  <hr />
+  マップ表示時の情報(option)
+  <p>
+    <%= f.label :location_latitude, 'センター緯度' %><br />
+    <%= f.text_field :location_latitude %>
+  </p>
+  
+  <p>
+    <%= f.label :location_longitude, 'センター経度' %><br />
+    <%= f.text_field :location_longitude %>
+  </p>
+  
+  <p>
+    <%= f.label :location_scale, 'スケール' %><br />
+    <%= f.text_field :location_scale %>
+  </p>
+  
+  
+  
+  <p>
+    <%= f.submit button_title %>
+  </p>
+<% end %>

@@ -9,6 +9,10 @@
 </p>
 
 <p>
+  <b>地図表示情報:</b>
+  <%= "緯度 #{number_with_precision(@omatsuri.location_latitude, :precision => 8)}, 経度 #{number_with_precision(@omatsuri.location_latitude, :precision => 8)}, スケール #{@omatsuri.location_scale}" %>
+</p>
+
 <%= link_to '最新位置を確認する', omatsuri_locations_path(@omatsuri.code) %>
 </p>
 
