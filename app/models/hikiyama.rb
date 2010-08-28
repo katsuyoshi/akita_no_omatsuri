@@ -32,5 +32,20 @@ class Hikiyama < ActiveRecord::Base
     attributes[:omatsuri_code] = self.omatsuri.code
     { :hikiyama => attributes }
   end
+
+  def json_location_at_date date, timespan, accuracy
+    date ||= DateTime.now
+    timespan ||= 24.0 * 60.0
+    accuracy ||= 500.0
+    
+    location = self.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
+    h = {}
+    h[:location] = location.json_attributes[:location] if location
+    h[:name] = self.name
+    h[:code] = self.code
+    h[:icons] = self.icons.collect{|i| File.basename(i.public_filename, ".*") }
+#p h
+    h
+  end
   
 end

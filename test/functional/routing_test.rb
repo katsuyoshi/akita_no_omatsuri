@@ -125,5 +125,12 @@ class RoutesTest < ActionController::TestCase
   end
 
 
+  # -----
+
+  test "/omatsuri/kakunodate/timelines/2010-8-17-00/2010-8-18-00/0" do
+    assert_routing "/omatsuri/kakunodate/timelines/2010-8-17-00/2010-8-18-00/0", { :controller => 'omatsuris',  :action => 'show_timelines', :omatsuri => 'kakunodate', :start_at => '2010-8-17-00', :end_at => '2010-8-18-00', :interval => "0" }
+  end
+
+
 
 end

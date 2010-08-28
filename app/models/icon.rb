@@ -17,7 +17,9 @@ class Icon < ActiveRecord::Base
     
     org_image = Magick::ImageList.new(File.join(RAILS_ROOT, 'public', path))
     1.upto self.set_count do |i|
-      base_image = Magick::Image.new(org_image.columns * 1.5, org_image.rows * 1.5){|img| img.background_color = 'none' }
+      size = org_image.columns > org_image.rows ? org_image.columns : org_image.rows
+      size *= 1.5 
+      base_image = Magick::Image.new(size, size){|img| img.background_color = 'none' }
       background_image = Magick::Image.new(org_image.columns, org_image.rows){|img| img.background_color = 'none' }
       image = background_image.composite(org_image, 0, 0, Magick::OverCompositeOp).rotate((i - 1) * 360 / self.set_count)
       image = base_image.composite(image, (base_image.columns - image.columns) / 2, (base_image.rows - image.rows) / 2, Magick::OverCompositeOp)

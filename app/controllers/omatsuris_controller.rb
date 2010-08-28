@@ -25,6 +25,25 @@ class OmatsurisController < AdminController
       format.json { render :json => @omatsuri.json_attributes }      
     end
   end
+  
+  def show_timelines
+    @omatsuri = Omatsuri.find_by_code(params[:omatsuri]) if params[:omatsuri]
+    @omatsuri ||= Omatsuri.find(params[:id])
+    start_at = to_date(params[:start_at]) if params[:start_at]
+    end_at = to_date(params[:end_at]) if params[:end_at]
+    timespan = to_date(params[:timespan]) if params[:timespan]
+    interval = params[:interval].to_f if params[:interval]
+    accuracy = params[:accuracy].to_f if params[:accuracy]
+    
+    respond_to do |format|
+      format.json {
+        @locations = @omatsuri.json_location_at_date start_at, end_at, timespan, interval, accuracy
+        render :json => @locations
+      }
+    end
+  end
+
+
 
   # GET /omatsuris/new
   # GET /omatsuris/new.xml

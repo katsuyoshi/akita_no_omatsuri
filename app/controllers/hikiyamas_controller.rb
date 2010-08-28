@@ -38,6 +38,8 @@ class HikiyamasController < AdminController
       format.json  {
       
         @locations = @omatsuri.hikiyamas.collect do |hikiyama|
+          hikiyama.json_location_at_date date, timespan, accuracy
+=begin
           location = hikiyama.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
           h = {}
           h[:location] = location.json_attributes[:location] if location
@@ -45,6 +47,7 @@ class HikiyamasController < AdminController
           h[:code] = hikiyama.code
           h[:icons] = hikiyama.icons.collect{|i| File.basename(i.public_filename, ".*") }
           { :hikiyama => h }
+=end
         end
 
         render :json => @locations

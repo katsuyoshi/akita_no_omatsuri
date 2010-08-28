@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :devices
 
+  map.omatsuri_timelines("/omatsuri/:omatsuri/timelines/:start_at/:end_at/:interval.:format", :controller => 'omatsuris', :action => 'show_timelines', :requirements => { :start_at => /\d{4}-\d{1,2}-\d{1,2}-(\d{2}|\d{4}|\d{6})/, :end_at => /\d{4}-\d{1,2}-\d{1,2}-(\d{2}|\d{4}|\d{6})/, :interval => /\d+/ })
 
   map.hikiyamas("/omatsuri/:omatsuri/hikiyamas.:format",
     :controller => 'hikiyamas', :action => 'index' )
