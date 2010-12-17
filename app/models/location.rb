@@ -37,6 +37,7 @@ class Location < ActiveRecord::Base
   
   def json_attributes
     attributes = self.attributes.clone
+    attributes[:timestamp] = attributes[:timestamp].to_time.to_s(:short) if attributes[:timestamp]
     attributes.delete "created_at"
     attributes.delete "hikiyama_id"
     attributes.delete "updated_at"
