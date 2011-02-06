@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true" charset="utf-8"></script>
+<script type="text/javascript" src="./js/gears_init.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/myPos.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery-1.4.2.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/viewMap2.js" charset="utf-8"></script>
+<title>曳山位置情報システムビューワーデモ</title>
+<link href="css/viewMap.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="mymap">
+</div>
+<div id="ctlBox">
+    <div id="slIt"></div>
+    <div id="nowPos"></div>
+    <div id="lastTime"></div>
+    <form id="ctlForm">
+        <input name="bt_renew" id="bt_renew" type="button" value="手動更新" />
+        <input name="bt_autoRenew" id="bt_autoRenew" type="button" value="60秒更新" />
+        <input name="bt_movePos" id="bt_movePos" type="button" value="現在地" />
+        <input name="bt_movePos2" id="bt_movePos2" type="button" value="現在地を常に中心" />
+        <input name="bt_moveEvent" id="bt_moveEvent" type="button" value="全体表示" />
+    </form>
+</div>
+</body>
+</html>

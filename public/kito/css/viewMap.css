@@ -1,0 +1,22 @@
+@charset "utf-8";
+html{
+    overflow:hidden;
+}
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+#mymap {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index:-1;
+    position:absolute;
+}
+#ctlBox {
+    bottom: 40px;
+    left:5px;
+    position:absolute;
+    z-index:1000;
+}
