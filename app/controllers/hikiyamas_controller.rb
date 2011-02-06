@@ -16,11 +16,9 @@ class HikiyamasController < AdminController
   end
 
   def hikiyamas_location
-    params[:timespan] ||= 30 * 24 * 60
     params[:accuracy] ||= 500
     params[:date] ||= DateTime.now.strftime("%Y-%m-%d-%H%M%S")
     
-    timespan = params[:timespan].to_f / (24.0 * 60.0)
     accuracy = params[:accuracy].to_f
     date = to_date(params[:date])
 
@@ -38,7 +36,7 @@ class HikiyamasController < AdminController
       format.json  {
       
         @locations = @omatsuri.hikiyamas.collect do |hikiyama|
-          hikiyama.json_location_at_date date, timespan, accuracy
+          hikiyama.json_location_at_date date, accuracy
 =begin
           location = hikiyama.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
           h = {}
