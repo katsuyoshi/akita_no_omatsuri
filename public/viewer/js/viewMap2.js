@@ -6,10 +6,15 @@ var clat = 39.59929722;
 var clong = 140.56142532;
 var mapZoom = 15;
 
-var swLat = 0;
-var swLng = 0;
-var neLat = 0;
-var neLng = 0;
+// 角館
+var defaultLocation = new google.maps.LatLng(39.592891, 140.570326);
+var halfDeltaLat = 0.016667 / 2.0;
+var halfDeltaLng = 0.034161 / 2.0;
+
+var swLat = defaultLocation.lat() - halfDeltaLat;
+var swLng = defaultLocation.lng() - halfDeltaLng;
+var neLat = defaultLocation.lat() + halfDeltaLat;
+var neLng = defaultLocation.lng() + halfDeltaLng;
 
 var mylat = 0;
 var mylng = 0;
