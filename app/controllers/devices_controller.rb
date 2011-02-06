@@ -1,5 +1,7 @@
 class DevicesController < ApplicationController
   layout "application"
+  include AuthenticatedSystem
+
   # GET /devices
   # GET /devices.xml
   def index

@@ -28,7 +28,7 @@ class HikiyamasController < AdminController
     respond_to do |format|
       format.html {
         @locations = @omatsuri.hikiyamas.collect do |hikiyama|
-          location = hikiyama.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
+          location = hikiyama.locations.find(:first, :conditions => ["timestamp <= ? and horizontal_accuracy <= ?", date, accuracy], :order => "timestamp desc")
           location ||= {}
           location[:hikiyama_name] = hikiyama.name
           location
