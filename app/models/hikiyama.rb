@@ -33,12 +33,11 @@ class Hikiyama < ActiveRecord::Base
     { :hikiyama => attributes }
   end
 
-  def json_location_at_date date, timespan, accuracy
+  def json_location_at_date date, accuracy
     date ||= DateTime.now
-    timespan ||= 24.0 * 60.0
     accuracy ||= 500.0
     
-    location = self.locations.find(:first, :conditions => ["timestamp between ? and ? and horizontal_accuracy <= ?", date - timespan, date, accuracy], :order => "timestamp desc")
+    location = self.locations.find(:first, :conditions => ["timestamp <= ? and horizontal_accuracy <= ?", date, accuracy], :order => "timestamp desc")
     h = {}
     h[:location] = location.json_attributes[:location] if location
     h[:name] = self.name
