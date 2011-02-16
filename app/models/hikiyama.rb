@@ -42,6 +42,8 @@ class Hikiyama < ActiveRecord::Base
     h[:location] = location.json_attributes[:location] if location
     h[:name] = self.name
     h[:code] = self.code
+    h[:url] = self.url
+    h[:summary] = self.summary
     h[:icons] = self.icons.collect{|i| File.basename(i.public_filename, ".*") }
 #p h
     h
