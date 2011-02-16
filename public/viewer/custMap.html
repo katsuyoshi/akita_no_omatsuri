@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true" charset="utf-8"></script>
+<script type="text/javascript" src="./js/gears_init.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/myPos.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery-1.4.2.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/custMap.js" charset="utf-8"></script>
+<title>曳山位置情報システム</title>
+<link href="css/custMap.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>曳山位置情報システム</h1>
+<div id="mymap">
+</div>
+<form id="ctlForm">
+<div id="menuBox"><input name="img_menu" type="image" src="images/menu.png" alt="Menu" id="img_menu" />
+</div>
+<div id="ctlBox">
+  <div id="inBox">
+    <div id="close">
+        <input name="img_close" type="image" src="images/close.png" alt="閉じる" id="img_close" />
+    </div>
+    <p>
+      <img src="images/sample.png" width="32" height="32" alt="サンプル" />
+      <span><input name="bt_renew" id="bt_renew" type="button" value="手動更新" />
+      <a id="help_renew" href="#">？</a></span></p>
+    <p>
+      <img src="images/sample.png" width="32" height="32" alt="サンプル" />
+    <span>ナビモード　<a id="help_navi" href="#">？</a>
+      <input type="radio" name="navi" id="navi_on" class="navi" value="1" />
+      ON
+      <input type="radio" name="navi" id="navi_off" class="navi" value="0" checked="checked" />
+      OFF
+      </span></p>
+    <p>
+    <img src="images/sample.png" width="32" height="32" alt="サンプル" />
+    <span id="slIt"><select name=""></select></span></p>
+    <p>
+      <img src="images/sample.png" width="32" height="32" alt="サンプル" />
+      <span><input name="bt_moveEvent" id="bt_moveEvent" type="button" value="全曳山表示" />
+    </span></p>
+    <p>
+      <img src="images/sample.png" width="32" height="32" alt="サンプル" />
+      <span><a href="http://www.kakudate.com/omatsuri/">http://www.kakudate.com/omatsuri/</a>
+    </span></p>
+  </div>
+</div>
+</form>
+</body>
+</html>
