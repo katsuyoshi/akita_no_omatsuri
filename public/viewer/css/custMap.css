@@ -1,56 +1,60 @@
 @charset "utf-8";
 html{
-    overflow:hidden;
+	overflow:hidden;
 }
 html,body{
-    margin: 0;
-    height: 100%;
-    width: 100%;
+	margin: 0;
+	height: 100%;
+	width: 100%;
 }
 #mymap {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-/*    z-index:-1; */
-    position:absolute;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	/* 2011Feb15 S.Taguchi -1 -> 0 */
+	z-index:0;
+	position:absolute;
 }
 #ctlBox {
-    position:absolute;
-    z-index:1000;
-    border: 1px solid #666;
-    background-color: #CCC;
-    width: 96%;
-/*  margin: 2%; */
-    overflow: auto;
-    padding: 0;
-    left: 10px;
-    bottom: 36px;
-    display: none;
+	position:absolute;
+	z-index:1000;
+/*	border: 1px solid #C9D7F1;*/
+	border: 1px solid rgb(169, 187, 223);
+	background-color: #FFF;
+	width: 96%;
+	margin: 2%;
+	overflow: auto;
+	padding: 0;
+/*	left: 10px;*/
+	bottom: 24px;
+	display: none;
 }
 #menuBox {
-    position:absolute;
-    z-index:1001;
-/*  margin: 2%;*/
-    padding: 0;
-    left: 10px;
-    bottom: 36px;
+	position:absolute;
+	z-index:1001;
+/*	margin: 2%;*/
+	padding: 0;
+/* S.Taguchi 2011Feb16
+	left: 10px;*/
+	right: 10px;
+	bottom: 24px;
 }
 #inBox {
-    margin: 2%;
+	margin: 2%;
 }
 #inBox p{
-    margin: 2px;
+	margin: 2px;
 }
 #inBox span{
-    vertical-align: middle;
+	vertical-align: middle;
 }
 #inBox img{
-    vertical-align: middle;
+	vertical-align: middle;
 }
 #close {
-    float: right;
-    margin: 5px;
+	float: right;
+	margin: 5px;
 }
 h1 {
-    display: none;
+	display: none;
 }
