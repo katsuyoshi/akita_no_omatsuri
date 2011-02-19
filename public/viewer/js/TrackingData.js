@@ -349,7 +349,7 @@ function HikiyamaTrackingData(omatsuriId, hikiyamaId) {
 
     // private method
     this.makeIconURL = function(heading){
-        url = "/omatsuri/" + this.omatsuriId + "/" + this.hikiyamaId + "/icon/" + this.hikiyamaId + "/" +  Math.floor(heading);
+        url = "/omatsuri/" + this.omatsuriId + "/" + this.hikiyamaId + "/icon/0/" +  Math.floor(heading);
         return(url);
     };
 
