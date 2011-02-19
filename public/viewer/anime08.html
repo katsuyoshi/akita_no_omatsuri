@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<title>曳山運行アニメーション</title>
+<style type="text/css">
+    html { height: 100%; }
+    body { height: 100%; margin: 0px; padding: 0px; }
+    #map {  }
+    #control { height:60px; padding:5px; border-top:solid 1px #708DCD; background-color:#E3E9F7;}
+    #nowloading { font-weight:bold; }
+    #components {
+/*      border:solid 1px rgb(169, 187, 223);*/
+        display:none;
+    }
+    #frm0 { display:inline; }
+    #frm1 { display:inline; }
+    #frm2 { display:inline; }
+    #frm3 { display:inline; }
+    #frm4 { display:inline; }
+    #slider_container {
+        width:100%;
+    }
+    #slider_value_container { width:200px; text-align:right; }
+    #slider_control_container { padding:0 20px; }
+    #slider {
+        margin:0;
+        width:100%;
+        height:14px;
+    }
+</style>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="./js/jquery-1.4.2.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true" charset="utf-8"></script>
+<script type="text/javascript" src="./js/gears_init.js" charset="utf-8"></script>
+<!--script type="text/javascript" src="./js/myPos.js" charset="utf-8"></script-->
+<script type="text/javascript" src="./js/TrackingData.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/anime08.js" charset="utf-8"></script>
+<script type="text/javascript">
+<!--
+/*  var slider;
+    var slider_container;
+    var slider_value;
+    
+    $(document).ready(function() {
+            slider = $('#slider');
+            slider_container = $('#slider_container');
+            slider_value = $('#slider_value');
+
+            var initValue = 0;
+            slider_value.text(initValue);
+            slider.slider({
+                animate:true,
+                min: 0,
+                max: 50000,
+                value:initValue,
+                slide: function (event, ui) { slider_value.text(ui.value); }
+            });
+        }
+    );*/
+//-->
+</script>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="control">
+        <div id="nowloading">
+        　運行データロード中。しばらくお待ちください．．．
+        </div>
+        <div id="components">
+            <form id="frm0" name="frm0" action="">
+                <input name="start" type="button" value="START" onclick="startStop()" disabled />
+            </form>
+            <!--span id="time">
+            　時刻：<span id="datetime"></span>
+            </span-->
+            <form id="frm2" name="frm2" action="">
+                　再生速度：
+                <input type="radio" name="speed" onclick="javascript:speedChange(50)" checked="checked"/>50倍速
+                <input type="radio" name="speed" onclick="javascript:speedChange(150)"/>150倍速
+                <input type="radio" name="speed" onclick="javascript:speedChange(450)"/>450倍速
+            </form>
+            <form id="frm3" name="frm3" action="">
+                　コマ数/秒：
+                <input type="radio" name="fps" onclick="javascript:fpsChange(8)"/>8
+                <input type="radio" name="fps" onclick="javascript:fpsChange(16)" checked="checked"/>16
+                <input type="radio" name="fps" onclick="javascript:fpsChange(24)"/>24
+            </form>
+            <form id="frm4" name="frm4" action="">
+                　軌跡の描画：
+                <input name="graph" type="checkbox" value="graph" onclick="" />
+            </form>
+            <form id="frm1" name="frm1" action="">
+                　<input name="stats" type="button" value="統計" onclick="stats2()" />
+            </form>
+            <table id="slider_container">
+                <tr>
+                    <td id="slider_value_container">時刻：<span id="datetime"></span></td>
+                    <td id="slider_control_container"><div id="slider"></div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
