@@ -1,4 +1,4 @@
-var OmatsuriId = "kakunodate";
+var OmatsuriId = "demo";
 //var HikiyamaNames = ["shimoiwase"];
 var TrackingData = [];
 var LoadedCount = 0;
