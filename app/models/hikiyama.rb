@@ -30,6 +30,7 @@ class Hikiyama < ActiveRecord::Base
     attributes.delete "omatsuri_id"
     attributes[:omatsuri_name] = self.omatsuri.name
     attributes[:omatsuri_code] = self.omatsuri.code
+    attributes[:icons] = self.icons.collect{|i| File.basename(i.public_filename, ".*") }
     { :hikiyama => attributes }
   end
 
