@@ -9,4 +9,5 @@ Capfile
 config/deploy.rb
 release
 public/icon
-
+.dropbox
+Icon?
