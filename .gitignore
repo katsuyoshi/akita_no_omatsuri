@@ -11,3 +11,4 @@ release
 public/icon
 .dropbox
 Icon?
+*.xcworkspace
