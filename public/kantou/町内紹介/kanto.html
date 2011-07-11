@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+ 	<link rel="shortcut icon" href="/taguchi/favicon.ico">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+	<link rel="stylesheet" href="css/hikiyama.css" />
+	<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+	<title>竿燈・町内紹介</title>
+</head>
+<body>
+	<div id="page1" class="pageBody" data-role="page" data-theme="a">
+		<div data-role="header">
+			<a href="#page3" data-role="button" data-icon="arrow-l" data-transition="slide">前の町内へ</a>
+			<h6>鐵砲町竿燈会</h6>
+			<a href="#page2" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
+		</div>
+		<div class="contentContainer" data-role="content">
+			<p class="imageContainer">
+				<img class="resizableImage" src="images/tepoucho_name.png" onload="onImageLoaded(this);" /><br/>
+				<img class="resizableImage" src="images/tepouchoSquare.jpg" onload="onImageLoaded(this);" /><br/>
+			</p>
+			<div class="description">
+				<p class="kaisetsu" style="">
+				※サンプル※<br/>
+					鐵砲町は、現在の大町六丁目に相当し、当時は鉄砲鍛治職人が集まる町内だったといわれています。私たち鐵砲町竿燈会は、江戸中期ころから竿燈祭りに参加しており、竿燈の歴史とともに今もなお歩み続けています。鐵砲町の町紋は「鐵」。半纏には鐵の文字のまわりに「青年」の文字が描かれています。<br/>
+					提灯には鐵一文字、反対側には秋田に伝わる伝説の狐「與次郎稲荷」が描かれています。<br/>
+					<br/>
+					與次郎稲荷の伝説<br/>
+					　與次郎稲荷は、秋田藩士佐竹に仕えた狐の伝説として古くから言い伝えられています。<br/>
+					　現在の千秋公園に、久保田城を築いた佐竹義宣公。久保田城が建てられた場所には狐が住んでいました。<br/>
+					　久保田城の建立で住み家を失ってしまった狐は。義宣公に新しい住み家を与えてもらうよう懇願しました。<br/>
+					　義宣公は狐に城の茶園近くに住み家を与え、茶園守の與次郎と呼びました。<br/>
+				　	　私たち鐵砲町竿燈会は、毎年竿燈祭りの初日、與次郎稲荷神社にもお参りしています。<br/>
+				</p>
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="javascript:gotoMap();" data-role="button" data-icon="backward">地図へ</a></li>
+					<li><a href="#help" data-role="button" data-icon="info" data-transition="pop">ヘルプ</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>
+	
+	<div id="page2" class="pageBody" data-role="page" data-theme="a">
+		<div data-role="header">
+			<a href="#page1" data-role="button" data-icon="arrow-l" data-transition="slide">前の町内へ</a>
+			<h6>南通竿燈会</h6>
+			<a href="#page3" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
+		</div>
+		<div class="contentContainer" data-role="content">
+			<p class="imageContainer">
+				<img class="resizableImage" src="images/minamidori_name.png" onload="onImageLoaded(this);" /><br/>
+				<img class="resizableImage" src="images/minamidoriSquare.jpg" onload="onImageLoaded(this);" /><br/>
+			</p>
+			<div class="description">
+				<p class="kaisetsu" style="">
+				※サンプル※<br/>
+				<br/>
+				</p>
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="javascript:gotoMap();" data-role="button" data-icon="backward">地図へ</a></li>
+					<li><a href="#help" data-role="button" data-icon="info" data-transition="pop">ヘルプ</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>
+	
+	<div id="page3" class="pageBody" data-role="page" data-theme="a">
+		<div data-role="header">
+			<a href="#page2" data-role="button" data-icon="arrow-l" data-transition="slide">前の町内へ</a>
+			<h6>毘沙門町竿燈会</h6>
+			<a href="#page1" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
+		</div>
+		<div class="contentContainer" data-role="content">
+			<p class="imageContainer">
+				<img class="resizableImage" src="images/bisyamoncho_name.png" onload="onImageLoaded(this);" /><br/>
+				<img class="resizableImage" src="images/bisyamonchoSquare.jpg" onload="onImageLoaded(this);" /><br/>
+			</p>
+			<div class="description">
+				<p class="kaisetsu" style="">
+				※サンプル※<br/>
+				<br/>
+				</p>
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="javascript:gotoMap();" data-role="button" data-icon="backward">地図へ</a></li>
+					<li><a href="#help" data-role="button" data-icon="info" data-transition="pop">ヘルプ</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>
+
+	<div id="help" data-role="page">
+		<div data-role="header">
+			<h1>町内紹介・ヘルプ</h1>
+		</div>
+		<div data-role="content">
+			<p>画面上部の「前の町内へ」「次の町内へ」ボタンで丁内を切り替えることができます。</p>
+			<p>「Home」ボタンで先頭のページを表示します。</p>
+		</div>
+		<div data-role="footer"><h5>竿燈・町内紹介</h5></div>
+	</div>
+</body>
+</html>

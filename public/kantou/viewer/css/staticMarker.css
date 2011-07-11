@@ -1,0 +1,27 @@
+/* StaticMarkerの情報ウィンドウのスタイル定義 */
+
+.infoWinContainer a {
+	text-decoration:none;
+}
+
+.infoWinTitle {
+	font-size:16pt;
+	font-weight:bold;
+}
+
+.infoWinTitle, .infoWinIntro, .infoWinRoute {
+	text-align:center;
+}
+
+.infoWinDescription table {
+	text-align:left;
+	font-size:10pt;
+}
+
+.infoWinDescription table .leftCol {
+	background-color:#6F94F7;
+	text-arlign:center;
+}
+.infoWinDescription table .rightCol {
+	background-color:#ffffff;
+}

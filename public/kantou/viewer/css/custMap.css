@@ -1,0 +1,126 @@
+@charset "utf-8";
+html{
+	overflow:hidden;
+}
+html,body{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+#mymap {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	z-index:0;
+	position:absolute;
+}
+h1 {
+	display: none;
+}
+#menuBox {
+	position:absolute;
+	z-index:10;
+	padding: 0;
+	right: 10px;
+/*	bottom: 24px;*/
+	bottom: 80px;
+}
+
+#ctlBox {
+	position:absolute;
+	z-index:20;
+	width:100%;
+	margin: 0 auto;
+	padding: 0;
+	bottom: 0;
+	display: none;
+	background: url(../images/bgtile.png) repeat-x center;
+}
+
+#ctlBox ul {
+	margin:0 auto;
+	padding:0;
+	width:300px;
+}
+
+#ctlBox li {
+	float:left;
+	height:78px;
+	list-style-type:none;
+}
+
+#ctlBox li a img {
+	border-width:0;
+}
+
+/* ctlBox下のボタンの設定 */
+.buttonImg a, .buttonImg a img {
+	display:block;
+	width:60px;
+	height:78px;
+}
+
+/* Refresh */
+a#bt_renew {
+	background-image:url(../images/refresh.png);
+}
+a#bt_renew:hover {
+	background-image:url(../images/hoverrefresh.png);
+}
+
+/* Navi Mode */
+a#bt_navi {
+	background-image:url(../images/navimodeoff.png);
+}
+/*a#bt_navi:hover {
+	background-image:url(../images/hovernavimodeoff.png);
+}*/
+
+/* Look At */
+#slIt {
+	width:60px;
+	height:78px;
+	overflow:hidden;
+	background-image:url(../images/lookat.png);
+}
+
+#slIt:hover {
+	background-image:url(../images/hoverlookat.png);
+}
+
+#fllist {
+	width:60px;
+	height:78px;
+	padding:0;
+	border:0;
+	filter:alpha(opacity=0);
+	-moz-opacity:0.0;
+	line-height:78px;
+	opacity:0.0;
+	cursor:pointer;
+}
+
+/* View All */
+a#bt_moveEvent {
+	background-image:url(../images/viewall.png);
+}
+a#bt_moveEvent:hover {
+	background-image:url(../images/hoverviewall.png);
+}
+
+/* Help */
+a#bt_help {
+	background-image:url(../images/help.png);
+}
+a#bt_help:hover {
+	background-image:url(../images/hoverhelp.png);
+}
+
+/*debug*/
+#debug {
+	position:absolute;
+	z-index:15;
+	padding: 0;
+	right: 10px;
+	top: 60px;
+}

@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+.pageBody {
+	background-image:url(../images/seigaiha.gif);
+}
+
+.contentContainer {
+	width:94%;
+	margin:10px auto 0 auto;
+	padding:0;
+}
+
+.description {
+	margin:0 0 10px 0;
+	padding:0 0 10px 0;
+	background-image:url(../images/whitebg.png);
+/*	background-color:#e0e0e0;*/
+	color:0;
+	font-family:serif;
+	text-shadow:none;
+}
+
+.description p {
+	margin:0 0 15px 0;
+	color:#000000;
+}
+
+.description h3 {
+	margin:0 0 10px -20px;
+	border-left:solid 20px #7000c0;
+	color:#ffffff;
+}
+
+.description p img {
+	vertical-align:-5px;
+}
+
+.description .kaisetsu {
+	padding:0 10px 0 20px;
+	text-indent:1em;
+}
+
+.description h3 span {
+	background-color:0;
+}
+
+.imageContainer {
+	margin:0;
+	padding:5px 0;
+	background-image:url(../images/blackbg.png);
+	text-align:center;
+}
+
+.imageContainer img {
+	margin:0;
+}

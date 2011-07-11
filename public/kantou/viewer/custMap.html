@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true" charset="utf-8"></script>
+<script type="text/javascript" src="./js/gears_init.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/myPos.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery-1.6.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/custMap.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/StaticMarker.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/MarkerInfos.js" charset="utf-8"></script>
+<title>お祭り位置情報システム</title>
+<link href="css/custMap.css" rel="stylesheet" type="text/css" />
+<link href="css/staticMarker.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--<form>
+<input type="button" value="TEST" onclick="jsonFile='/uprun/locations.json?1';getMarkerLocation2();">
+<input type="button" value="RETURN" onclick="jsonFile='/omatsuri/kakunodate/locations.json?2';getMarkerLocation2();">
+</form>-->
+<h1>お祭り位置情報システム</h1>
+<div id="mymap"></div>
+<!--debug from-->
+<div id="debug"></div>
+<!--debug to-->
+<form id="ctlForm">
+	<div id="menuBox">
+		<input name="img_menu" type="image" src="images/hanten.png" alt="Menu" id="img_menu" />
+	</div>
+	<div id="ctlBox">
+		<ul>
+			<li class="buttonImg"><a href="#" id="bt_renew"><img alt="Refresh" src="images/spacer.gif"></a></li>
+			<li class="buttonImg"><a href="#" id="bt_navi"><img id="img_navimode" alt="Navi Mode" src="images/spacer.gif"></a></li>
+			<li class="buttonImg"><div id="slIt"></div></li>
+			<li class="buttonImg"><a href="#" id="bt_moveEvent"><img alt="View All" src="images/spacer.gif"></a></li>
+			<li class="buttonImg"><a href="#" id="bt_help"><img alt="Help" src="images/spacer.gif"></a></li>
+		</ul>
+	</div>
+</form>
+</body>
+</html>
