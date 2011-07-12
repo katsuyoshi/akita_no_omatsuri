@@ -33,9 +33,9 @@ var MarkerInfos = [
 			lat: 39.718703,
 			lng: 140.111703
 		},
-		icon: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/seat.png',
+		icon: '/kantou/images/seat.png',
 		shadow: {
-			url: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/seatShadow.png',
+			url: '/kantou/images/seatShadow.png',
 			anchorX: 8,
 			anchorY: 14
 		},
@@ -53,9 +53,9 @@ var MarkerInfos = [
 			lat: 39.718576,
 			lng: 140.111239
 		},
-		icon: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toilet0.png',
+		icon: '/kantou/images/toilet0.png',
 		shadow: {
-			url: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toiletShadow.png',
+			url: '/kantou/images/toiletShadow.png',
 			anchorX: 10,
 			anchorY: 20
 		},
@@ -73,9 +73,9 @@ var MarkerInfos = [
 			lat: 39.718303,
 			lng: 140.114878
 		},
-		icon: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toilet0.png',
+		icon: '/kantou/images/toilet0.png',
 		shadow: {
-			url: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toiletShadow.png',
+			url: '/kantou/images/toiletShadow.png',
 			anchorX: 10,
 			anchorY: 20
 		},
@@ -93,9 +93,9 @@ var MarkerInfos = [
 			lat: 39.719595,
 			lng: 140.112106
 		},
-		icon: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/parking.png',
+		icon: '/kantou/images/parking.png',
 		shadow: {
-			url: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toiletShadow.png',
+			url: '/kantou/images/toiletShadow.png',
 			anchorX: 10,
 			anchorY: 20
 		},
@@ -122,9 +122,9 @@ var MarkerInfos = [
 			lat: 39.718264,
 			lng: 140.116296
 		},
-		icon: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/parking.png',
+		icon: '/kantou/images/parking.png',
 		shadow: {
-			url: 'http://www.hikiyama-map.com/taguchi/staticMarker/images/toiletShadow.png',
+			url: '/kantou/images/toiletShadow.png',
 			anchorX: 10,
 			anchorY: 20
 		},
@@ -144,8 +144,15 @@ var MarkerInfos = [
 						<div class="infoWinRoute"><a href="javascript:routeDisplay(%lat, %lng)">ルート表示</a></div>\
 				  	  </div>',
 		}
-	},
+	}
+];
 
+
+
+
+
+// ※以下の町内のマーカーは、管理画面から登録される。
+var Chounai = [
 	{
 		title: "鐵砲町",
 		position: {
@@ -216,4 +223,3 @@ var MarkerInfos = [
 		}
 	}
 ];
-

@@ -13,7 +13,7 @@ var directionsService = null;	// Jun17 S.taguchi ルート表示用オブジェ�
 一時JSONPを使いました。2011/5/3 S.Taguchi
 */
 //6/30デモ用
-var jsonFile = "http://hikiyama-map.heroku.com/omatsuri/id:12/locations.json?jsoncallback=?";
+var jsonFile = "http://hikiyama-map.heroku.com/omatsuri/id:13/locations.json?jsoncallback=?";
 
 //6/30デモ用　秋田市役所
 var clat = 39.720008;	//初期表示緯度
@@ -38,7 +38,8 @@ var ini = 0;	//初期化
 //var defOld = "/omatsuri/kakunodate/sugazawa/icon/sugazawa/";
 //var defIcon = "/omatsuri/kakunodate/";
 //6/30デモ用
-var defIcon = "http://hikiyama-map.heroku.com/events/12/roles/33/icon/0/";
+//var defIcon = "http://hikiyama-map.heroku.com/events/12/roles/33/icon/0/";
+var defIcon = "http://hikiyama-map.heroku.com/events/13/roles/";
 
 
 // 2011/6/22 K.Musaka　修正
@@ -377,7 +378,9 @@ function makeIconURL(def,hid,heading,icons){
 //		url = def + hid + "/icon/" + icons + "/" +  Math.floor(heading); 
 
 //heroku 6/30デモ用仮　headingしか反映しない
-		url = def + Math.floor(heading); 
+//		url = def + Math.floor(heading); 
+		// S.Taguchi
+		url = def + hid + "/icon/0/"; 	// 竿燈用
 
 /*
 /events/:event_id/roles/:role_id/icon/:icon_idx_or_name/:deg
