@@ -12,8 +12,13 @@ var directionsService = null;	// Jun17 S.taguchi ルート表示用オブジェ�
 /* 伊藤さんがサーバの開発をheroku.comで行なっており、データ取得がクロスドメインになるため
 一時JSONPを使いました。2011/5/3 S.Taguchi
 */
+// 2011/7/13 S.Taguchi
+var baseURL = "http://hikiyama-map.heroku.com";
+var eventId = 13;	// 竿燈サンプル用イベント
+
 //6/30デモ用
-var jsonFile = "http://hikiyama-map.heroku.com/omatsuri/id:13/locations.json?jsoncallback=?";
+//var jsonFile = "http://hikiyama-map.heroku.com/omatsuri/id:13/locations.json?jsoncallback=?";
+var jsonFile = "http://hikiyama-map.heroku.com/omatsuri/id:" + eventId + "/locations.json?jsoncallback=?";
 
 //6/30デモ用　秋田市役所
 var clat = 39.720008;	//初期表示緯度
@@ -39,7 +44,9 @@ var ini = 0;	//初期化
 //var defIcon = "/omatsuri/kakunodate/";
 //6/30デモ用
 //var defIcon = "http://hikiyama-map.heroku.com/events/12/roles/33/icon/0/";
-var defIcon = "http://hikiyama-map.heroku.com/events/13/roles/";
+var defIcon = baseURL + "/events/" + eventId + "/roles/";	// 2011/7/13 S.Taguchi
+var code2idTbl = {};	// 役割のcodeからidへの変換テーブル　2011/7/14 S.Taguchi
+//var code2idTbl = {tepoucho:38, minamidori:39, bishamoncho:40};	// 役割のcodeからidへの変換テーブル　2011/7/14 S.Taguchi
 
 
 // 2011/6/22 K.Musaka　修正
@@ -74,7 +81,8 @@ function getMarkerLocation2(){
 	iniFlg = 0;
 	strOption = "";
 
-	$.getJSON(jsonFile, {}, function(json) {
+	$.getJSON(jsonFile, {}, function(json, status) {
+		//alert("location status[" + status + "]");
 		var lat,lng,heading,hid,ts,id,ho_a,head_a,h_name,icons,summary,tswk;
 		var hlArray = new Array();	//曳山1台分の情報
 		hArray = [];
@@ -118,7 +126,8 @@ function getMarkerLocation2(){
 			var mAnchor = new google.maps.Point(20,20);
 			var mScaleSize = new google.maps.Size(40, 40);
 
-			var mIcon = new google.maps.MarkerImage(mUrl,mSize,mOrigin,mAnchor,mScaleSize); 	
+			// var mIcon = new google.maps.MarkerImage(mUrl,mSize,mOrigin,mAnchor,mScaleSize);
+			var mIcon = new google.maps.MarkerImage(mUrl);	// 2011/7/14 S.Taguchi
 
 			if(markerArray.length != 0){
 				idx = getMarkerArray(this[3]);
@@ -379,8 +388,9 @@ function makeIconURL(def,hid,heading,icons){
 
 //heroku 6/30デモ用仮　headingしか反映しない
 //		url = def + Math.floor(heading); 
-		// S.Taguchi
-		url = def + hid + "/icon/0/"; 	// 竿燈用
+
+		//url = def + hid + "/icon/0/"; 	// 竿燈用
+		url = def + code2idTbl[hid] + "/icon/0/"; 	// 竿燈用 codeからidに変換をする。 2011/7/14 S.Taguchi
 
 /*
 /events/:event_id/roles/:role_id/icon/:icon_idx_or_name/:deg
@@ -570,7 +580,32 @@ function setCenter(lat,lng){
 
 
 
-google.maps.event.addDomListener(window, 'load', function() {
+
+google.maps.event.addDomListener(window, 'load', getRoles);
+
+
+
+// サーバから「役割一覧」を得、役割のcodeからidへの変換テーブル(code2idTbl)に設定する。
+// ※非同期処理なので他の処理とのタイミングに注意※
+// 2011/7/13 S.Taguchi
+function getRoles() {
+	var rolesFile = baseURL + "/events/" + eventId + "/roles.json?jsoncallback=?";
+	
+	$.getJSON(rolesFile, {}, function(rolesData, status) {
+		//alert("roles status[" + status + "]");
+		for (var i=0; i<rolesData.length; i++) {
+			with(rolesData[i].role) {
+				code2idTbl[code] = id;
+			}
+		}
+		onLoadProc();
+	});
+}
+
+
+
+//google.maps.event.addDomListener(window, 'load', function() {
+function onLoadProc() {
 	$("#ctlBox").hide();
 	var mapdiv = document.getElementById('mymap');
 	var hMa = new Array();
@@ -748,7 +783,7 @@ google.maps.event.addDomListener(window, 'load', function() {
 			closeCtlBox();
 		}
 	);
-});
+}
 
 
 
@@ -823,3 +858,4 @@ function directionsCallback(result, status) {
 		directionsDisplay.setDirections(result);
 	}
 }
+
