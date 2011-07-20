@@ -144,6 +144,21 @@ var MarkerInfos = [
 						<div class="infoWinRoute"><a href="javascript:routeDisplay(%lat, %lng)">ルート表示</a></div>\
 				  	  </div>',
 		}
+	},
+	{
+		title: "QRコード",
+		position: {
+			lat: 39.719703,
+			lng: 140.110252
+		},
+		icon: '/taguchi/kantou/viewer/images/QRcode.gif',
+		zIndex:60,
+		infoWindow: {
+			content: '<div class="infoWinContainer">\
+						<div class="infoWinTitle">このﾍﾟｰｼﾞのQRｺｰﾄﾞ</div>\
+						<div class="infoWinDescription">このQRコードをスマートフォンで読むことでスマートフォンにこのページを表示することができます。</div>\
+				  	  </div>',
+		}
 	}
 ];
 
