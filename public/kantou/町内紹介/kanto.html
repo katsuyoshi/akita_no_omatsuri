@@ -8,6 +8,11 @@
 	<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
 	<title>竿燈・町内紹介</title>
+	<script type="text/javascript">
+		function onImageLoaded(img) {
+		
+		}
+	</script>
 </head>
 <body>
 	<div id="page1" class="pageBody" data-role="page" data-theme="a">
@@ -78,12 +83,40 @@
 		<div data-role="header">
 			<a href="#page2" data-role="button" data-icon="arrow-l" data-transition="slide">前の町内へ</a>
 			<h6>毘沙門町竿燈会</h6>
-			<a href="#page1" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
+			<a href="#page4" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
 		</div>
 		<div class="contentContainer" data-role="content">
 			<p class="imageContainer">
 				<img class="resizableImage" src="images/bisyamoncho_name.png" onload="onImageLoaded(this);" /><br/>
 				<img class="resizableImage" src="images/bisyamonchoSquare.jpg" onload="onImageLoaded(this);" /><br/>
+			</p>
+			<div class="description">
+				<p class="kaisetsu" style="">
+				※サンプル※<br/>
+				<br/>
+				</p>
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="javascript:gotoMap();" data-role="button" data-icon="backward">地図へ</a></li>
+					<li><a href="#help" data-role="button" data-icon="info" data-transition="pop">ヘルプ</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>
+
+	<div id="page4" class="pageBody" data-role="page" data-theme="a">
+		<div data-role="header">
+			<a href="#page3" data-role="button" data-icon="arrow-l" data-transition="slide">前の町内へ</a>
+			<h6>川反竿燈会</h6>
+			<a href="#page1" data-role="button" data-icon="arrow-r" data-transition="slide">次の町内へ</a>
+		</div>
+		<div class="contentContainer" data-role="content">
+			<p class="imageContainer">
+				<img class="resizableImage" src="images/kawago_name.png" onload="onImageLoaded(this);" /><br/>
+				<img class="resizableImage" src="images/kawagoSquare.jpg" onload="onImageLoaded(this);" /><br/>
 			</p>
 			<div class="description">
 				<p class="kaisetsu" style="">
