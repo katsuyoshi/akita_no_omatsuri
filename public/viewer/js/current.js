@@ -233,7 +233,12 @@ function setCenter(lat,lng){
 	mapInstance.setCenter(posNow);
 }
 
-
+function reloadMarkers() {
+    old_marker_list = marker_list;
+    marker_list = new google.maps.MVCArray();
+    getMarkerLocation();
+    deleteAllMarker(old_marker_list);
+}
 
 google.maps.event.addDomListener(window, 'load', function() {
 	$("#ctlBox").hide();
@@ -267,10 +272,7 @@ google.maps.event.addDomListener(window, 'load', function() {
 	});
 
 	$("#bt_renew").click(function(e){
-		old_marker_list = marker_list;
-		popMVCList(marker_list);
-		getMarkerLocation();
-		deleteAllMarker(old_marker_list);
+        reloadMarkers();
 		$("#ctlBox").hide();
 		$("#menuBox").show();
 	});
@@ -333,10 +335,7 @@ google.maps.event.addDomListener(window, 'load', function() {
 
 	//60秒ごとに再読み込み
 	reloadInterval = setInterval(function(){
-			old_marker_list = marker_list;
-			popMVCList(marker_list);
-			getMarkerLocation();
-			deleteAllMarker(old_marker_list);
+        reloadMarkers();
 	},rntime*1000);
 
 });
