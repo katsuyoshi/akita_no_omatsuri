@@ -78,12 +78,12 @@ function setMarker(json){
 			summary = json[i].summary;
 			
 			if(iniFlg==0){
-				swLat = lat;
-				swLng = lng;
-				neLat = lat;
-				neLng = lng;
+                var delta = 0.004
+				swLat = lat - delta;
+				swLng = lng - delta;
+				neLat = lat + delta;
+				neLng = lng + delta;
 				iniFlg = 1;
-                fitMap();
 			}else{
 				if(lat < swLat){
 					swLat = lat;
@@ -176,8 +176,8 @@ function addMarker(lat,lng,heading,hid,ts,id,ho_a,head_a,h_name,icons){
 
 
 function fitMap(){
-  var southWest = new google.maps.LatLng(swLat - 0.004,swLng - 0.004);
-  var northEast = new google.maps.LatLng(neLat + 0.004,neLng + 0.004);
+  var southWest = new google.maps.LatLng(swLat,swLng);
+  var northEast = new google.maps.LatLng(neLat,neLng);
   var bounds = new google.maps.LatLngBounds(southWest,northEast);
 
   mapInstance.fitBounds(bounds);
